@@ -133,12 +133,21 @@ section{padding:38px 0 4px;scroll-margin-top:8px}
 .tier{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);
   padding:14px 16px;margin-bottom:10px;position:relative;overflow:hidden}
 .tier.hot{border-color:var(--gold);background:linear-gradient(150deg,#F7EDD8,#FBF9F5)}
-.tier .flag{position:absolute;top:0;right:0;background:var(--gold);color:#fff;font-size:11px;
-  padding:3px 11px;border-bottom-left-radius:10px;letter-spacing:.08em}
-.tier .amt{font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:.06em;color:var(--ink)}
-.tier .rate{font-size:12px;color:var(--caramel);margin-left:8px;letter-spacing:.04em}
-.tier ul{margin:8px 0 0;padding-left:1.05em;font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+.tier .flag{display:inline-flex;align-items:center;gap:5px;background:var(--gold);color:#fff;
+  font-size:11.5px;padding:3px 12px;border-radius:100px;letter-spacing:.1em;
+  margin-bottom:9px;box-shadow:0 1px 5px rgba(196,161,90,.3)}
+.tier .flag .star{width:.62em;height:.62em}
+.tier .amt{font-family:"Cormorant Garamond",serif;font-size:26px;letter-spacing:.06em;color:var(--ink);line-height:1.2}
+.tier-top{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;
+  padding-bottom:10px;border-bottom:1px dashed var(--line)}
+.tier .got{font-family:"Cormorant Garamond",serif;font-size:16px;color:var(--ink-soft);letter-spacing:.04em}
+.tier .rate{margin-left:auto;font-size:12.5px;color:#fff;background:var(--caramel);border-radius:100px;
+  padding:3px 11px;letter-spacing:.04em;white-space:nowrap}
+.tier.hot .rate{background:var(--gold);color:#4A3410}
+.tier ul{margin:10px 0 0;padding-left:1.05em;font-size:14px;color:var(--ink-soft);line-height:1.8}
+.tier ul li{padding:2px 0}
 .tier ul li::marker{color:var(--gold)}
+.tier ul li .gv{color:var(--ink-faint);font-size:12.5px}
 .vip-note{background:var(--card);border-radius:var(--r);padding:13px 16px;font-size:13px;
   color:var(--ink-soft);line-height:1.9;margin-top:4px}
 .vip-note b{color:var(--caramel)}
@@ -408,7 +417,7 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
   <div class="vip-note">
     <b>VIP 卸甲</b>｜卸甲永久免費，至儲值金使用完畢為止。<br>
     <b>贈送除毛堂數</b>｜不限本人使用，可轉贈親友。<br>
-    <span style="color:var(--ink-faint);font-size:12px">回饋率為贈送金額＋贈品市價的估算值，VIP 卸甲與活動款未計入。</span>
+    <span style="color:var(--ink-faint);font-size:12px">贈品價值依現行價目表估算；VIP 卸甲與足部活動款無固定價格，未計入回饋率。</span>
   </div>
 </section>
 
@@ -597,6 +606,8 @@ const CONFIG = {
 const NAIL = {
   base: 699,
   jump: 100,
+  /* 當月活動款：款式與價格依 IG 公告，選了就不另計基礎與款式 */
+  event: { n:'當月活動款', min:1100, max:1500, desc:'款式與價錢依 IG 公告' },
   /* 有 tiers 的項目以最低價估算，明細會顯示「+」 */
   styles: [
     { k:'fr',  n:'法式',         p:100 },
@@ -623,8 +634,7 @@ const NAIL = {
   ],
   press: [
     { k:'std',   n:'公版單色',     p:599,  desc:'製作期 7–15 天' },
-    { k:'cus',   n:'客製款',       p:null, desc:'依款式報價・製作期 7–15 天' },
-    { k:'later', n:'到店再決定',   p:null, desc:'到店討論款式後報價' }
+    { k:'cus',   n:'客製款',       p:null, desc:'依款式報價・製作期 7–15 天' }
   ],
   careOnly: [
     { k:'stop',  n:'卸甲不續作', p:500, desc:'基礎保養＋護甲油＋護手霜' },
@@ -670,13 +680,31 @@ const GLOW = {
 };
 
 /* ---------- ⑤ 儲值方案 ---------- */
+/* gifts 的 v = 依現行價目表估算的價值，null 代表無固定價格不計入回饋 */
 const TIERS = [
-  { amt:3000,  cash:200,  gifts:[], est:200 },
-  { amt:5000,  cash:300,  gifts:['冰感腋下除毛 1 堂','本店卸甲 1 次'], est:1000, flag:'小資首選' },
-  { amt:10000, cash:800,  gifts:['冰感腋下除毛 1 堂','本店卸甲 2 次'], est:1600 },
-  { amt:15000, cash:1500, gifts:['冰感腋下除毛 3 堂','VIP 卸甲'], est:3300, flag:'約手足美甲必衝' },
-  { amt:20000, cash:2200, gifts:['VIP 卸甲','小腿／全手 2 堂 或 私密處 1 堂'], est:4600 },
-  { amt:30000, cash:3300, gifts:['冰感腋下除毛 1 堂','小腿／全手 2 堂 或 私密處 1 堂','免費足部活動款 1 次','VIP 卸甲'], est:6300 }
+  { amt:3000,  cash:200,  gifts:[] },
+  { amt:5000,  cash:300,  flag:'小資首選', gifts:[
+      { n:'冰感腋下除毛 1 堂', v:600 },
+      { n:'本店卸甲 1 次',     v:100 }
+  ]},
+  { amt:10000, cash:800,  gifts:[
+      { n:'冰感腋下除毛 1 堂', v:600 },
+      { n:'本店卸甲 2 次',     v:200 }
+  ]},
+  { amt:15000, cash:1500, flag:'約手足美甲必衝', gifts:[
+      { n:'冰感腋下除毛 3 堂', v:1800 },
+      { n:'VIP 卸甲',          v:null }
+  ]},
+  { amt:20000, cash:2200, gifts:[
+      { n:'小腿／全手 2 堂 或 私密處 1 堂', v:2400 },
+      { n:'VIP 卸甲',          v:null }
+  ]},
+  { amt:30000, cash:3300, gifts:[
+      { n:'冰感腋下除毛 1 堂', v:600 },
+      { n:'小腿／全手 2 堂 或 私密處 1 堂', v:2400 },
+      { n:'足部活動款 1 次',   v:1200, plus:true },
+      { n:'VIP 卸甲',          v:null }
+  ]}
 ];
 
 /* ============================================================
@@ -761,7 +789,8 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#menuS
 const PRICE = {
   nail: { label:'光療美甲', groups:[
     { h:'基礎 GEL', rows:[
-      ['單色','$699'],
+      ['單色|已包含基礎保養、加厚','$699'],
+      ['當月活動款|款式與價錢依 IG 公告','$1100–$1500'],
       ['跳色','+$100'],
       ['超長加厚','$100','每指加價'],
       ['斷裂補甲','$50','每指加價']
@@ -860,13 +889,19 @@ $$('[data-goto]').forEach(a => a.addEventListener('click', () => {
    儲值方案
    ============================================================ */
 $('#tierList').innerHTML = TIERS.map(t => {
-  const rate = Math.round(t.est / t.amt * 100);
+  const giftVal = t.gifts.reduce((a, g) => a + (g.v || 0), 0);
+  const back = t.cash + giftVal;
+  const rate = Math.round(back / t.amt * 100);
   return `<div class="tier${t.flag ? ' hot' : ''}">
-    ${t.flag ? `<span class="flag">${esc(t.flag)}</span>` : ''}
-    <div><span class="amt">${nt(t.amt)}</span><span class="rate">實得約 ${nt(t.amt + t.est)}・回饋約 ${rate}%</span></div>
+    ${t.flag ? `<span class="flag"><i class="star"></i>${esc(t.flag)}</span>` : ''}
+    <div class="tier-top">
+      <span class="amt">${nt(t.amt)}</span>
+      <span class="got">實得 ${nt(t.amt + back)}</span>
+      <span class="rate">回饋約 ${rate}%</span>
+    </div>
     <ul>
       <li>回饋金 ${nt(t.cash)}</li>
-      ${t.gifts.map(g => `<li>${esc(g)}</li>`).join('')}
+      ${t.gifts.map(g => `<li>${esc(g.n)}${g.v ? `<span class="gv">（價值 ${nt(g.v)}${g.plus ? ' 以上' : ''}）</span>` : ''}</li>`).join('')}
     </ul>
   </div>`;
 }).join('');
@@ -874,7 +909,7 @@ $('#tierList').innerHTML = TIERS.map(t => {
 /* ============================================================
    試算器
    ============================================================ */
-const blankPart = () => ({ on:false, jump:false, styles:{}, extras:{}, remove:'no', later:false });
+const blankPart = () => ({ on:false, event:false, jump:false, styles:{}, extras:{}, remove:'no', later:false });
 const blankNail = () => ({ mode:'', hand:blankPart(), foot:blankPart(), press:'', care:'' });
 const blankHair = () => ({ parts:{}, film:false, male:false, pack3:false, later:false });
 const blankGlow = () => ({ part:'', plan:'', later:false });
@@ -963,12 +998,20 @@ function calcNailPart(key){
   let total = 0, from = false, hMin = 0, hMax = 0;
   if (!s.on) return { lines, total, from, hMin, hMax };
 
-  total += NAIL.base;
-  lines.push({ n:`${label}　單色光療`, p:NAIL.base });
-  if (s.jump){ total += NAIL.jump; lines.push({ n:`${label}　跳色`, p:NAIL.jump }); }
+  if (s.event){
+    total += NAIL.event.min;
+    from = true;
+    lines.push({ n:`${label}　${NAIL.event.n}（${nt(NAIL.event.min)}–${nt(NAIL.event.max)}）`, p:NAIL.event.min, from:true });
+  } else {
+    total += NAIL.base;
+    lines.push({ n:`${label}　單色光療`, p:NAIL.base });
+    if (s.jump){ total += NAIL.jump; lines.push({ n:`${label}　跳色`, p:NAIL.jump }); }
+  }
 
-  let styleFingers = 0;
-  if (s.later){
+  let styleFingers = s.event ? 1 : 0;
+  if (s.event){
+    /* 活動款款式已定，不另計款式 */
+  } else if (s.later){
     from = true;
     styleFingers = 1;
     lines.push({ n:`${label}　款式到店再決定`, p:0, from:true });
@@ -1155,11 +1198,26 @@ function renderCalc(){
           body.className = 'part-body';
 
           const baseWrap = document.createElement('div');
-          baseWrap.innerHTML = `<div class="stepper"><div class="lb">單色光療<small>基礎價・已包含</small></div><div class="ctrl"><span class="v" style="color:var(--caramel)">${nt(NAIL.base)}</span></div></div>`;
-          baseWrap.appendChild(checkRow(key + 'Jump', '跳色', '', '+' + nt(NAIL.jump), ps.jump, v => ps.jump = v));
+          baseWrap.appendChild(checkRow(key + 'Event', NAIL.event.n, NAIL.event.desc,
+            `${nt(NAIL.event.min)}–${nt(NAIL.event.max)}`, ps.event, v => {
+              ps.event = v;
+              if (v){ ps.jump = false; ps.styles = {}; ps.later = false; }
+            }));
+          if (!ps.event){
+            const bs = document.createElement('div');
+            bs.innerHTML = `<div class="stepper"><div class="lb">單色光療<small>已包含基礎保養、加厚</small></div><div class="ctrl"><span class="v" style="color:var(--caramel)">${nt(NAIL.base)}</span></div></div>`;
+            baseWrap.appendChild(bs);
+            baseWrap.appendChild(checkRow(key + 'Jump', '跳色', '', '+' + nt(NAIL.jump), ps.jump, v => ps.jump = v));
+          } else {
+            const ev = document.createElement('p');
+            ev.className = 'hint';
+            ev.textContent = '活動款已含款式設計，不需再選基礎與款式；加購與卸甲仍可另外選擇。';
+            baseWrap.appendChild(ev);
+          }
           body.appendChild(fieldset('基礎 GEL', baseWrap));
 
           const stWrap = document.createElement('div');
+          if (ps.event) stWrap.style.display = 'none';
           stWrap.appendChild(checkRow(key + 'Later', '到店再決定款式', '先以目前金額計算，款式費用現場加計',
                                       '＋', ps.later, v => ps.later = v));
           if (!ps.later){
@@ -1182,7 +1240,7 @@ function renderCalc(){
             h2.textContent = '有分級的款式一律以最低價估算，金額會標示「+」，實際依複雜度由設計師現場計費。';
             stWrap.appendChild(h2);
           }
-          body.appendChild(fieldset('款式（每指加價）', stWrap));
+          if (!ps.event) body.appendChild(fieldset('款式（每指加價）', stWrap));
 
           const exWrap = document.createElement('div');
           NAIL.extras.forEach(ex => exWrap.appendChild(
@@ -1206,7 +1264,7 @@ function renderCalc(){
 
     } else if (s.mode === 'press'){
       box.appendChild(fieldset('款式', chipRow(
-        NAIL.press.map(x => ({ k:x.k, n:x.n, sub:x.p ? nt(x.p) : (x.k === 'later' ? '到店討論' : '依款式報價') })),
+        NAIL.press.map(x => ({ k:x.k, n:x.n, sub:x.p ? nt(x.p) : '依款式報價' })),
         s.press, k => { s.press = k; }
       )));
       const w = document.createElement('p');
