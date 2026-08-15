@@ -412,12 +412,12 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
 <section id="stored" class="wrap">
   <p class="eyebrow"><i class="star"></i>Membership<i class="star"></i></p>
   <h2 class="sec-title">儲值方案</h2>
-  <p class="sec-note">可現儲現抵・回饋率越高越划算</p>
+  <p class="sec-note">可現儲現抵・儲值金與回饋金皆可折抵店內各項服務</p>
   <div id="tierList"></div>
   <div class="vip-note">
-    <b>VIP 卸甲</b>｜卸甲永久免費，至儲值金使用完畢為止。<br>
-    <b>贈送除毛堂數</b>｜不限本人使用，可轉贈親友。<br>
-    <span style="color:var(--ink-faint);font-size:12px">贈品價值依現行價目表估算；VIP 卸甲與足部活動款無固定價格，未計入回饋率。</span>
+    <b>可現儲現抵</b>｜當日儲值即可折抵當次消費。<br>
+    <b>回饋金</b>｜可用於美甲、除毛、光保養等店內各項服務。<br>
+    <span style="color:var(--ink-faint);font-size:12px">回饋率為回饋金佔儲值金額的比例，實際權益與使用期限以店內公告為準。</span>
   </div>
 </section>
 
@@ -595,10 +595,10 @@ const CONFIG = {
 
   /* 活動公告：把 active 改成 true 就會出現在首頁 */
   notice: {
-    active: true,
-    title: '儲值方案優惠回饋最高25%',
-    body: '加值當次即可折抵，不限本人使用',
-    when: '無使用期限'
+    active: false,
+    title: '夏日限定活動',
+    body: '在這裡寫活動內容，可以換行。',
+    when: '活動期間：7/1 – 8/19'
   }
 };
 
@@ -621,7 +621,7 @@ const NAIL = {
     { k:'sp',  n:'特殊限定造型', p:100, tiers:'依複雜度 $100–$200' }
   ],
   extras: [
-    { k:'thick', n:'超長加厚',   p:100, unit:'指' },
+    { k:'thick', n:'凝膠／甲片延甲', p:100, unit:'指' },
     { k:'fix',   n:'斷裂補甲',   p:50,  unit:'指' },
     { k:'ext',   n:'延甲',       p:100, unit:'指' },
     { k:'extL',  n:'延甲・超長', p:150, unit:'指' }
@@ -680,31 +680,13 @@ const GLOW = {
 };
 
 /* ---------- ⑤ 儲值方案 ---------- */
-/* gifts 的 v = 依現行價目表估算的價值，null 代表無固定價格不計入回饋 */
+/* gifts 可留空；若某檔有贈品，寫成 { n:'項目', v:價值 }，v 為 null 代表不計入回饋 */
 const TIERS = [
-  { amt:3000,  cash:200,  gifts:[] },
-  { amt:5000,  cash:300,  flag:'小資首選', gifts:[
-      { n:'冰感腋下除毛 1 堂', v:600 },
-      { n:'本店卸甲 1 次',     v:100 }
-  ]},
-  { amt:10000, cash:800,  gifts:[
-      { n:'冰感腋下除毛 1 堂', v:600 },
-      { n:'本店卸甲 2 次',     v:200 }
-  ]},
-  { amt:15000, cash:1500, flag:'約手足美甲必衝', gifts:[
-      { n:'冰感腋下除毛 3 堂', v:1800 },
-      { n:'VIP 卸甲',          v:null }
-  ]},
-  { amt:20000, cash:2200, gifts:[
-      { n:'小腿／全手 2 堂 或 私密處 1 堂', v:2400 },
-      { n:'VIP 卸甲',          v:null }
-  ]},
-  { amt:30000, cash:3300, gifts:[
-      { n:'冰感腋下除毛 1 堂', v:600 },
-      { n:'小腿／全手 2 堂 或 私密處 1 堂', v:2400 },
-      { n:'足部活動款 1 次',   v:1200, plus:true },
-      { n:'VIP 卸甲',          v:null }
-  ]}
+  { amt:6000,  cash:500,  gifts:[] },
+  { amt:8800,  cash:880,  gifts:[] },
+  { amt:10000, cash:1088, gifts:[] },
+  { amt:15000, cash:1688, gifts:[] },
+  { amt:20000, cash:2388, gifts:[] }
 ];
 
 /* ============================================================
@@ -792,7 +774,7 @@ const PRICE = {
       ['單色|已包含基礎保養、加厚','$699'],
       ['當月活動款|款式與價錢依 IG 公告','$1100–$1500'],
       ['跳色','+$100'],
-      ['超長加厚','$100','每指加價'],
+      ['凝膠／甲片延甲','$100','每指加價'],
       ['斷裂補甲','$50','每指加價']
     ]},
     { h:'款式 STYLE', sub:'每指加價', rows:[
@@ -891,7 +873,7 @@ $$('[data-goto]').forEach(a => a.addEventListener('click', () => {
 $('#tierList').innerHTML = TIERS.map(t => {
   const giftVal = t.gifts.reduce((a, g) => a + (g.v || 0), 0);
   const back = t.cash + giftVal;
-  const rate = Math.round(back / t.amt * 100);
+  const rate = (back / t.amt * 100).toFixed(1).replace(/\.0$/, '');
   return `<div class="tier${t.flag ? ' hot' : ''}">
     ${t.flag ? `<span class="flag"><i class="star"></i>${esc(t.flag)}</span>` : ''}
     <div class="tier-top">
