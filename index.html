@@ -125,6 +125,9 @@ section{padding:38px 0 4px;scroll-margin-top:8px}
 .pnote{font-size:12.5px;color:var(--ink-faint);margin:8px 2px 0;line-height:1.8}
 .badge{display:inline-block;font-size:11px;letter-spacing:.06em;padding:2px 9px;border-radius:100px;
   background:var(--gold-soft);color:#6B4E20;margin-left:6px;vertical-align:middle}
+.badge.sm{font-size:10.5px;padding:1px 8px;background:var(--card-2);color:var(--caramel);
+  letter-spacing:.04em;position:relative;top:-1px}
+.prow .nm > small{margin-top:2px}
 
 /* ---- 儲值卡 ---- */
 .tier{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);
@@ -253,6 +256,28 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
 .bar a svg,.bar button svg{width:21px;height:21px}
 .bar .primary{flex:1.5;background:#06C755;color:#fff;font-weight:500}
 .bar .sec{background:var(--paper-2);border-color:var(--line)}
+
+/* ---- 指數計數 ---- */
+.fingers{display:flex;justify-content:space-between;align-items:center;gap:10px;
+  padding:8px 12px;margin-bottom:6px;border-radius:10px;background:var(--card);
+  font-size:12.5px;color:var(--ink-soft);letter-spacing:.04em}
+.fingers b{font-family:"Cormorant Garamond",serif;font-size:16px;color:var(--caramel);margin:0 1px}
+.fingers.full{background:#F2E2DC;color:var(--alert)}
+.fingers.full b{color:var(--alert)}
+
+/* ---- 手部／足部分區 ---- */
+.partblk{border:1px solid var(--line);border-radius:14px;background:var(--paper);
+  margin-bottom:10px;overflow:hidden;transition:border-color .2s}
+.partblk.on{border-color:var(--caramel);background:var(--paper-2)}
+.part-head{display:flex;align-items:center;gap:10px;width:100%;padding:14px 15px;text-align:left}
+.pt-name{flex:1;font-family:"Noto Serif TC",serif;font-size:16px;font-weight:600;letter-spacing:.12em}
+.pt-state{font-family:"Cormorant Garamond",serif;font-size:16px;color:var(--caramel);letter-spacing:.04em}
+.partblk:not(.on) .pt-state{color:var(--ink-faint);font-family:"Noto Sans TC",sans-serif;font-size:13px}
+.pt-tog{width:26px;height:26px;flex:0 0 auto;border-radius:50%;background:var(--card);
+  display:grid;place-items:center;font-size:14px;color:var(--caramel)}
+.partblk.on .pt-tog{background:var(--caramel);color:#FDF9F2}
+.part-body{padding:2px 15px 14px;border-top:1px dashed var(--line)}
+.part-body .fset:last-child{margin-bottom:4px}
 
 /* ---- 步驟標題 ---- */
 .step-hd{display:flex;align-items:center;gap:9px;margin:22px 0 10px;
@@ -392,20 +417,20 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
 
 <!-- ============ 預約表單 ============ -->
 <section id="book" class="wrap">
-  <p class="eyebrow"><i class="star"></i>Estimate &amp; Booking<i class="star"></i></p>
-  <h2 class="sec-title">價錢試算與預約</h2>
-  <p class="sec-note">填寫基本資料，生成預約單直接傳LINE</p>
+  <p class="eyebrow"><i class="star"></i>Booking<i class="star"></i></p>
+  <h2 class="sec-title">快速預約</h2>
+  <p class="sec-note">選好項目、填上資料，一鍵送出 LINE</p>
 
-  <p class="step-hd"><span class="step-no">1</span>選擇想做的項目</p>
+  <p class="step-hd"><span class="step-no">1</span>想做的項目</p>
 <div class="tabs" role="tablist" id="calcTabs"></div>
   <div class="calc" id="calcBody"></div>
 
-  <p class="step-hd"><span class="step-no">2</span>確認明細</p>
+  <p class="step-hd"><span class="step-no">2</span>項目與費用確認</p>
   <div class="calc">
     <div id="sumBox" class="result" style="margin-top:0;border-top:0;padding-top:0"></div>
   </div>
 
-  <p class="step-hd"><span class="step-no">3</span>填寫預約資料</p>
+  <p class="step-hd"><span class="step-no">3</span>你的資料與時段</p>
   <div class="calc">
     <div class="form-grid">
       <div class="field">
@@ -446,13 +471,13 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
 
     <button class="btn btn-line" type="button" id="genBtn">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.8.22.9.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1 .89.55s5.87-3.46 8-5.92C21.3 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
-      產生預約單傳送至 LINE 預約
+      產生訊息並前往 LINE 預約
     </button>
     <div id="msgWrap" hidden>
       <div class="preview" id="msgPreview"></div>
-      <button class="btn btn-ghost" type="button" id="copyBtn" style="margin-top:10px">再複製一次</button>
+      <button class="btn btn-ghost" type="button" id="copyBtn" style="margin-top:10px">再複製一次訊息</button>
     </div>
-    <p class="privacy">將預約訊息傳送到LINE，闆娘才會收到唷。<br>
+    <p class="privacy">資料只在你的手機上組成訊息，不會上傳到任何伺服器。<br>
       還沒加好友？<a href="https://lin.ee/PoVfij2" target="_blank" rel="noopener">先加入微光所 LINE</a>（ID：@760pcsxd）</p>
   </div>
 </section>
@@ -561,10 +586,10 @@ const CONFIG = {
 
   /* 活動公告：把 active 改成 true 就會出現在首頁 */
   notice: {
-    active: true,
-    title: '闆娘搬新家',
-    body: '儲值會員回饋最高23%',
-    when: '永久有效'
+    active: false,
+    title: '夏日限定活動',
+    body: '在這裡寫活動內容，可以換行。',
+    when: '活動期間：7/1 – 8/19'
   }
 };
 
@@ -572,46 +597,41 @@ const CONFIG = {
 const NAIL = {
   base: 699,
   jump: 100,
+  /* 有 tiers 的項目以最低價估算，明細會顯示「+」 */
   styles: [
-    { k:'fr',   n:'法式',        p:100 },
-    { k:'cat',  n:'貓眼光線',    p:50  },
-    { k:'bl',   n:'腮紅造型',    p:50  },
-    { k:'om1',  n:'暈染・一層',  p:100 },
-    { k:'om2',  n:'暈染・疊層',  p:150, hard:true },
-    { k:'hd1',  n:'手繪・點綴',  p:50  },
-    { k:'hd2',  n:'手繪・精緻',  p:100, hard:true },
-    { k:'hd3',  n:'手繪・複雜',  p:150, hard:true },
-    { k:'gr1',  n:'漸層・實色',  p:100 },
-    { k:'gr2',  n:'漸層・雙色',  p:150, hard:true },
-    { k:'mr1',  n:'鏡面・單色',  p:50  },
-    { k:'mr2',  n:'鏡面・立體',  p:100, hard:true },
-    { k:'mr3',  n:'鏡面・複雜',  p:150, hard:true },
-    { k:'gm1',  n:'鑽飾・點綴',  p:100 },
-    { k:'gm2',  n:'鑽飾・精緻',  p:150, hard:true },
-    { k:'gm3',  n:'鑽飾・複雜',  p:200, hard:true }
+    { k:'fr',  n:'法式',         p:100 },
+    { k:'cat', n:'貓眼光線',     p:50  },
+    { k:'bl',  n:'腮紅造型',     p:50  },
+    { k:'om',  n:'暈染',         p:100, tiers:'一層 $100・疊層 $150' },
+    { k:'hd',  n:'手繪',         p:50,  tiers:'點綴 $50・精緻 $100・複雜 $150' },
+    { k:'gr',  n:'漸層',         p:100, tiers:'實色 $100・雙色 $150' },
+    { k:'mr',  n:'鏡面',         p:50,  tiers:'單色 $50・立體 $100・複雜 $150' },
+    { k:'gm',  n:'鑽飾',         p:100, tiers:'點綴 $100・精緻 $150・複雜 $200' },
+    { k:'sp',  n:'特殊限定造型', p:100, tiers:'依複雜度 $100–$200' }
   ],
   extras: [
-    { k:'thick', n:'超長加厚', p:100, unit:'指' },
-    { k:'fix',   n:'斷裂補甲', p:50,  unit:'指' },
-    { k:'ext',   n:'延甲',     p:100, unit:'指' },
+    { k:'thick', n:'超長加厚',   p:100, unit:'指' },
+    { k:'fix',   n:'斷裂補甲',   p:50,  unit:'指' },
+    { k:'ext',   n:'延甲',       p:100, unit:'指' },
     { k:'extL',  n:'延甲・超長', p:150, unit:'指' }
   ],
   removes: [
-    { k:'no',    n:'不需要',            p:0   },
-    { k:'here',  n:'本店卸甲',          p:100 },
-    { k:'other', n:'他店卸甲',          p:200 },
-    { k:'hard',  n:'水晶／不可卸甲片',   p:300 }
+    { k:'no',    n:'不需要',           p:0   },
+    { k:'here',  n:'本店卸甲',         p:100 },
+    { k:'other', n:'他店卸甲',         p:200 },
+    { k:'hard',  n:'水晶／不可卸甲片', p:300 }
   ],
   press: [
-    { k:'std', n:'公版單色',  p:599, desc:'製作期 7–15 天' },
-    { k:'cus', n:'客製款',    p:null, desc:'依款式報價・製作期 7–15 天' }
+    { k:'std',   n:'公版單色',     p:599,  desc:'製作期 7–15 天' },
+    { k:'cus',   n:'客製款',       p:null, desc:'依款式報價・製作期 7–15 天' },
+    { k:'later', n:'到店再決定',   p:null, desc:'到店討論款式後報價' }
   ],
   careOnly: [
-    { k:'stop', n:'卸甲不續作', p:500, desc:'基礎保養＋護甲油＋護手霜' },
-    { k:'basic',n:'純基礎保養', p:300 }
+    { k:'stop',  n:'卸甲不續作', p:500, desc:'基礎保養＋護甲油＋護手霜' },
+    { k:'basic', n:'純基礎保養', p:300 }
   ],
-  /* 工時（小時） */
-  time: { solid:1.5, design:2, designHard:3, ext:1, remove:0.5, bothMul:1.8, pressPickup:0.5 }
+  /* 工時（小時）：款式款為區間 */
+  time: { solid:1.5, designMin:2, designMax:3, ext:1, remove:0.5, pressPickup:0.5 }
 };
 
 /* ---------- ③ 白雪公主冰感無痛除毛 ---------- */
@@ -693,7 +713,7 @@ const NAV = [
   { id:'services', n:'服務項目', ic:'M4 6h16M4 12h16M4 18h10' },
   { id:'price',    n:'價目表',   ic:'M5 4h14v16l-7-3-7 3z' },
   { id:'stored',   n:'儲值方案', ic:'M3 8h18v10H3zM3 8l3-4h12l3 4M8 13h4' },
-  { id:'book',     n:'試算與預約', ic:'M6 3h12v18H6zM9 8h6M9 12h3M9 16h3' },
+  { id:'book',     n:'快速預約', ic:'M6 3h12v18H6zM9 8h6M9 12h3M9 16h3' },
   { id:'policy',   n:'預約須知', ic:'M12 3l8 4v6c0 4.4-3.3 7.7-8 8-4.7-.3-8-3.6-8-8V7z' },
   { id:'map',      n:'交通位置', ic:'M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z' }
 ];
@@ -741,26 +761,28 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#menuS
 const PRICE = {
   nail: { label:'光療美甲', groups:[
     { h:'基礎 GEL', rows:[
-      ['單色','$699'], ['跳色','+$100'],
-      ['超長加厚','$100 / 指'], ['斷裂補甲','$50 / 指']
+      ['單色','$699'],
+      ['跳色','+$100'],
+      ['超長加厚','$100','每指加價'],
+      ['斷裂補甲','$50','每指加價']
     ]},
     { h:'款式 STYLE', sub:'每指加價', rows:[
-      ['法式','$100 / 指'], ['貓眼光線','$50 / 指'], ['腮紅造型','$50 / 指'],
-      ['暈染|一層 / 疊層','$100 / $150'],
-      ['手繪|點綴 / 精緻 / 複雜','$50 / $100 / $150'],
-      ['漸層|實色 / 雙色','$100 / $150'],
-      ['鏡面|單色 / 立體 / 複雜','$50 / $100 / $150'],
-      ['鑽飾|點綴 / 精緻 / 複雜','$100 / $150 / $200'],
-      ['特殊限定造型|依複雜度','$100–$200 / 指']
+      ['法式','$100'], ['貓眼光線','$50'], ['腮紅造型','$50'],
+      ['暈染|一層 $100・疊層 $150','$100+'],
+      ['手繪|點綴 $50・精緻 $100・複雜 $150','$50+'],
+      ['漸層|實色 $100・雙色 $150','$100+'],
+      ['鏡面|單色 $50・立體 $100・複雜 $150','$50+'],
+      ['鑽飾|點綴 $100・精緻 $150・複雜 $200','$100+'],
+      ['特殊限定造型|依複雜度','$100+']
     ]},
     { h:'護理 MANICURE', rows:[
       ['卸甲|他店 / 本店','$200 / $100'],
       ['卸甲|水晶 / 不可卸凝膠甲片','$300'],
-      ['延甲 / 超長','$100 / $150 / 指'],
+      ['延甲 / 超長','$100 / $150','每指加價'],
       ['卸甲不續作|基礎保養＋護甲油＋護手霜','$500'],
       ['純基礎保養','$300']
     ]}
-  ], note:'款式加價以「指」計算，實際款式與價格由設計師現場評估。'},
+  ], note:'款式加價以「指」計算。有分級的款式以最低價估算，實際依複雜度由設計師現場評估。手部與足部可分開選擇不同款式。'},
 
   press: { label:'仿真穿戴甲', groups:[
     { h:'穿戴甲 PRESS-ON', rows:[
@@ -816,9 +838,9 @@ function buildPrice(){
     p.innerHTML = d.groups.map(g => `
       <div class="pgroup">
         <h4>${esc(g.h)}${g.sub ? `<span class="badge">${esc(g.sub)}</span>` : ''}</h4>
-        ${g.rows.map(([n, pr]) => {
+        ${g.rows.map(([n, pr, tag]) => {
           const [main, sub] = String(n).split('|');
-          return `<div class="prow"><div class="nm">${esc(main)}${sub ? `<small>${esc(sub)}</small>` : ''}</div><div class="pr">${esc(pr)}</div></div>`;
+          return `<div class="prow"><div class="nm">${esc(main)}${tag ? `<span class="badge sm">${esc(tag)}</span>` : ''}${sub ? `<small>${esc(sub)}</small>` : ''}</div><div class="pr">${esc(pr)}</div></div>`;
         }).join('')}
       </div>`).join('') + (d.note ? `<p class="pnote">${esc(d.note)}</p>` : '');
     body.appendChild(p);
@@ -852,11 +874,11 @@ $('#tierList').innerHTML = TIERS.map(t => {
 /* ============================================================
    試算器
    ============================================================ */
-const S = {
-  nail: { mode:'', both:false, area:'手部', jump:false, styles:{}, extras:{}, remove:'no', special:false, press:'', care:'' },
-  hair: { parts:{}, film:false, male:false, pack3:false },
-  glow: { part:'', plan:'' }
-};
+const blankPart = () => ({ on:false, jump:false, styles:{}, extras:{}, remove:'no', later:false });
+const blankNail = () => ({ mode:'', hand:blankPart(), foot:blankPart(), press:'', care:'' });
+const blankHair = () => ({ parts:{}, film:false, male:false, pack3:false, later:false });
+const blankGlow = () => ({ part:'', plan:'', later:false });
+const S = { nail:blankNail(), hair:blankHair(), glow:blankGlow() };
 
 const CALC_TABS = [
   { k:'nail', label:'美甲・穿戴甲' },
@@ -932,69 +954,92 @@ function fieldset(title, node){
   return f;
 }
 
-/* ---------- 美甲計算 ---------- */
-function calcNail(){
-  const s = S.nail, lines = [], notes = [];
-  let total = 0, hours = 0, quote = false;
-  if (!s.mode) return { lines, total, hours, notes, quote, saved:[] };
+/* ---------- 美甲計算（手部、足部各自結算） ---------- */
+const PART_LABEL = { hand:'手部', foot:'足部' };
 
-  if (s.mode === 'gel'){
-    const mul = s.both ? 2 : 1;
-    const areaTxt = s.both ? '手部＋足部' : s.area;
-    total += NAIL.base * mul;
-    lines.push({ n:`${areaTxt}　單色光療${mul > 1 ? ' ×2' : ''}`, p:NAIL.base * mul });
-    if (s.jump){ total += NAIL.jump * mul; lines.push({ n:'跳色', p:NAIL.jump * mul }); }
+function calcNailPart(key){
+  const s = S.nail[key], label = PART_LABEL[key];
+  const lines = [];
+  let total = 0, from = false, hMin = 0, hMax = 0;
+  if (!s.on) return { lines, total, from, hMin, hMax };
 
-    let styleFingers = 0, hasHard = false;
+  total += NAIL.base;
+  lines.push({ n:`${label}　單色光療`, p:NAIL.base });
+  if (s.jump){ total += NAIL.jump; lines.push({ n:`${label}　跳色`, p:NAIL.jump }); }
+
+  let styleFingers = 0;
+  if (s.later){
+    from = true;
+    styleFingers = 1;
+    lines.push({ n:`${label}　款式到店再決定`, p:0, from:true });
+  } else {
     NAIL.styles.forEach(st => {
       const q = s.styles[st.k] || 0;
       if (!q) return;
       styleFingers += q;
-      if (st.hard) hasHard = true;
       const p = st.p * q;
       total += p;
-      lines.push({ n:`${st.n} ×${q} 指`, p });
+      if (st.tiers) from = true;
+      lines.push({ n:`${label}　${st.n} ×${q} 指`, p, from:!!st.tiers });
     });
-    NAIL.extras.forEach(ex => {
-      const q = s.extras[ex.k] || 0;
-      if (!q) return;
-      const p = ex.p * q;
-      total += p;
-      lines.push({ n:`${ex.n} ×${q} 指`, p });
+  }
+  NAIL.extras.forEach(ex => {
+    const q = s.extras[ex.k] || 0;
+    if (!q) return;
+    total += ex.p * q;
+    lines.push({ n:`${label}　${ex.n} ×${q} 指`, p:ex.p * q });
+  });
+  const rm = NAIL.removes.find(r => r.k === s.remove);
+  if (rm && rm.p){ total += rm.p; lines.push({ n:`${label}　${rm.n}`, p:rm.p }); }
+
+  if (styleFingers){ hMin = NAIL.time.designMin; hMax = NAIL.time.designMax; }
+  else { hMin = hMax = NAIL.time.solid; }
+  if ((s.extras.ext || 0) + (s.extras.extL || 0) > 0){ hMin += NAIL.time.ext; hMax += NAIL.time.ext; }
+  if (rm && rm.p){ hMin += NAIL.time.remove; hMax += NAIL.time.remove; }
+  return { lines, total, from, hMin, hMax };
+}
+
+function calcNail(){
+  const s = S.nail, lines = [], notes = [];
+  let total = 0, hMin = 0, hMax = 0, quote = false, from = false;
+  if (!s.mode) return { lines, total, hMin, hMax, notes, quote, from, saved:[] };
+
+  if (s.mode === 'gel'){
+    ['hand', 'foot'].forEach(k => {
+      const r = calcNailPart(k);
+      lines.push(...r.lines);
+      total += r.total; hMin += r.hMin; hMax += r.hMax;
+      if (r.from) from = true;
     });
-    if (s.special){ quote = true; notes.push('特殊限定造型：依複雜度 $100–$200／指，現場報價'); }
-
-    const rm = NAIL.removes.find(r => r.k === s.remove);
-    if (rm && rm.p){ total += rm.p; lines.push({ n:rm.n, p:rm.p }); }
-
-    hours = styleFingers ? (hasHard || styleFingers > 10 ? NAIL.time.designHard : NAIL.time.design) : NAIL.time.solid;
-    if ((s.extras.ext || 0) + (s.extras.extL || 0) > 0) hours += NAIL.time.ext;
-    if (rm && rm.p) hours += NAIL.time.remove;
-    if (s.both) hours *= NAIL.time.bothMul;
-
+    if (!lines.length) notes.push('請先開啟手部或足部');
   } else if (s.mode === 'press'){
-    const it = NAIL.press.find(p => p.k === s.press);
+    const it = NAIL.press.find(x => x.k === s.press);
     if (it){
       if (it.p){ total += it.p; lines.push({ n:`仿真穿戴甲・${it.n}`, p:it.p }); }
-      else { quote = true; lines.push({ n:'仿真穿戴甲・客製款', p:null }); }
-      hours = NAIL.time.pressPickup;
+      else { quote = true; lines.push({ n:`仿真穿戴甲・${it.n}`, p:null }); }
+      hMin = hMax = NAIL.time.pressPickup;
       notes.push('穿戴甲製作期 7–15 天，非當日完成');
     }
-  } else {
+  } else if (s.mode === 'care'){
     const it = NAIL.careOnly.find(c => c.k === s.care);
-    if (it){ total += it.p; lines.push({ n:it.n, p:it.p }); hours = NAIL.time.remove + 0.5; }
-    const rm = NAIL.removes.find(r => r.k === s.remove);
-    if (rm && rm.p){ total += rm.p; lines.push({ n:rm.n, p:rm.p }); hours += NAIL.time.remove; }
+    if (it){ total += it.p; lines.push({ n:it.n, p:it.p }); hMin = hMax = NAIL.time.remove + 0.5; }
+    const rm = NAIL.removes.find(r => r.k === S.nail.hand.remove);
+    if (rm && rm.p){ total += rm.p; lines.push({ n:rm.n, p:rm.p }); hMin += NAIL.time.remove; hMax += NAIL.time.remove; }
   }
-  return { lines, total, hours, notes, quote, saved:[] };
+  return { lines, total, hMin, hMax, notes, quote, from, saved:[] };
 }
 
 /* ---------- 除毛計算（自動套用最划算組合） ---------- */
 function calcHair(){
   const s = S.hair, lines = [], notes = [], saved = [];
   let total = 0, mins = 0;
+  if (s.later){
+    lines.push({ n:'除毛・到店再決定部位', p:null });
+    notes.push('部位與金額到店評估後確認');
+    return { lines, total:0, hMin:0.5, hMax:1, notes, quote:true, saved };
+  }
   let picked = Object.keys(s.parts).filter(k => s.parts[k]);
-  if (!picked.length) return { lines, total, hours:0, notes, quote:false, saved };
+  if (!picked.length) return { lines, total, hMin:0, hMax:0, notes, quote:false, saved };
 
   if (picked.includes('whole')){
     const w = HAIR.parts.find(p => p.k === 'whole');
@@ -1040,13 +1085,18 @@ function calcHair(){
     saved.push(`包三堂折扣，省下 ${nt(before - total)}`);
     notes.push('9 折為單次金額試算，三堂總額與堂數安排請與店家確認');
   }
-  return { lines, total, hours:mins / 60, notes, quote:false, saved };
+  return { lines, total, hMin:mins / 60, hMax:mins / 60, notes, quote:false, saved };
 }
 
 /* ---------- 光保養計算 ---------- */
 function calcGlow(){
   const s = S.glow, lines = [], notes = [], saved = [];
-  if (!s.part || !s.plan) return { lines, total:0, hours:0, notes, quote:false, saved };
+  if (s.later){
+    lines.push({ n:'光保養・到店再決定方案', p:null });
+    notes.push('由芳療師評估膚況後再決定堂數');
+    return { lines, total:0, hMin:1, hMax:1, notes, quote:true, saved };
+  }
+  if (!s.part || !s.plan) return { lines, total:0, hMin:0, hMax:0, notes, quote:false, saved };
   const g = GLOW[s.part];
   let total = 0, sessions = 1;
 
@@ -1061,7 +1111,7 @@ function calcGlow(){
     saved.push(`平均每堂 ${nt(per)}，比單堂省下 ${nt(diff)}`);
     notes.push('包堂不限本人使用');
   }
-  return { lines, total, hours:sessions === 1 ? g.t / 60 : g.t / 60, notes, quote:false, saved, sessions };
+  return { lines, total, hMin:g.t / 60, hMax:g.t / 60, notes, quote:false, saved, sessions };
 }
 
 const CALC = { nail:calcNail, hair:calcHair, glow:calcGlow };
@@ -1086,63 +1136,113 @@ function renderCalc(){
     }
 
     if (s.mode === 'gel'){
-      const areaWrap = document.createElement('div');
-      areaWrap.appendChild(chipRow(
-        [{ k:'手部', n:'手部' }, { k:'足部', n:'足部' }],
-        s.area, k => { s.area = k; }
-      ));
-      const both = checkRow('nBoth', '手足同時進行', '基礎光療以兩份計算，實際價格以現場為準', '×2', s.both, v => s.both = v);
-      areaWrap.appendChild(both);
-      box.appendChild(fieldset('部位', areaWrap));
+      ['hand', 'foot'].forEach(key => {
+        const ps = s[key], label = PART_LABEL[key];
+        const blk = document.createElement('div');
+        blk.className = 'partblk' + (ps.on ? ' on' : '');
 
-      const baseWrap = document.createElement('div');
-      baseWrap.innerHTML = `<div class="stepper"><div class="lb">單色光療<small>基礎價・已包含</small></div><div class="ctrl"><span class="v" style="color:var(--caramel)">${nt(NAIL.base)}</span></div></div>`;
-      baseWrap.appendChild(checkRow('nJump', '跳色', '', '+' + nt(NAIL.jump), s.jump, v => s.jump = v));
-      box.appendChild(fieldset('基礎 GEL', baseWrap));
+        const head = document.createElement('button');
+        head.type = 'button'; head.className = 'part-head';
+        head.setAttribute('aria-expanded', String(ps.on));
+        head.innerHTML = `<span class="pt-name">${label}</span>
+          <span class="pt-state">${ps.on ? (r0 => nt(r0.total) + (r0.from ? '+' : ''))(calcNailPart(key)) : '未選擇'}</span>
+          <span class="pt-tog">${ps.on ? '✕' : '＋'}</span>`;
+        head.onclick = () => { ps.on = !ps.on; renderCalc(); };
+        blk.appendChild(head);
 
-      const stWrap = document.createElement('div');
-      NAIL.styles.forEach(st => stWrap.appendChild(
-        stepper(st.n, `${nt(st.p)} / 指`, s.styles[st.k] || 0, s.both ? 20 : 10, v => s.styles[st.k] = v)
-      ));
-      stWrap.appendChild(checkRow('nSpec', '特殊限定造型', '依複雜度 $100–$200／指', '報價', s.special, v => s.special = v));
-      const h = document.createElement('p');
-      h.className = 'hint';
-      h.textContent = `款式以「指」計價，單手最多 10 指${s.both ? '（手足同時最多 20 指）' : ''}。`;
-      stWrap.appendChild(h);
-      box.appendChild(fieldset('款式（每指加價）', stWrap));
+        if (ps.on){
+          const body = document.createElement('div');
+          body.className = 'part-body';
 
-      const exWrap = document.createElement('div');
-      NAIL.extras.forEach(ex => exWrap.appendChild(
-        stepper(ex.n, `${nt(ex.p)} / ${ex.unit}`, s.extras[ex.k] || 0, s.both ? 20 : 10, v => s.extras[ex.k] = v)
-      ));
-      box.appendChild(fieldset('加購', exWrap));
+          const baseWrap = document.createElement('div');
+          baseWrap.innerHTML = `<div class="stepper"><div class="lb">單色光療<small>基礎價・已包含</small></div><div class="ctrl"><span class="v" style="color:var(--caramel)">${nt(NAIL.base)}</span></div></div>`;
+          baseWrap.appendChild(checkRow(key + 'Jump', '跳色', '', '+' + nt(NAIL.jump), ps.jump, v => ps.jump = v));
+          body.appendChild(fieldset('基礎 GEL', baseWrap));
 
-      box.appendChild(fieldset('卸甲', chipRow(
-        NAIL.removes.map(r => ({ k:r.k, n:r.n, sub:r.p ? nt(r.p) : '' })),
-        s.remove, k => { s.remove = k; }
-      )));
+          const stWrap = document.createElement('div');
+          stWrap.appendChild(checkRow(key + 'Later', '到店再決定款式', '先以目前金額計算，款式費用現場加計',
+                                      '＋', ps.later, v => ps.later = v));
+          if (!ps.later){
+            /* 一手／一腳只有 10 指，款式總數不得超過 10 */
+            const used = NAIL.styles.reduce((a, st) => a + (ps.styles[st.k] || 0), 0);
+            const left = 10 - used;
+
+            const cnt = document.createElement('div');
+            cnt.className = 'fingers' + (left === 0 ? ' full' : '');
+            cnt.innerHTML = `<span>已選 <b>${used}</b> / 10 指</span><span>${left === 0 ? '已達上限' : '還可選 ' + left + ' 指'}</span>`;
+            stWrap.appendChild(cnt);
+
+            NAIL.styles.forEach(st => {
+              const q = ps.styles[st.k] || 0;
+              stWrap.appendChild(stepper(st.n, st.tiers || nt(st.p), q, q + left,
+                                         v => ps.styles[st.k] = v));
+            });
+            const h2 = document.createElement('p');
+            h2.className = 'hint';
+            h2.textContent = '有分級的款式一律以最低價估算，金額會標示「+」，實際依複雜度由設計師現場計費。';
+            stWrap.appendChild(h2);
+          }
+          body.appendChild(fieldset('款式（每指加價）', stWrap));
+
+          const exWrap = document.createElement('div');
+          NAIL.extras.forEach(ex => exWrap.appendChild(
+            stepper(ex.n, nt(ex.p), ps.extras[ex.k] || 0, 10, v => ps.extras[ex.k] = v)
+          ));
+          body.appendChild(fieldset('加購（每指加價）', exWrap));
+
+          body.appendChild(fieldset('卸甲', chipRow(
+            NAIL.removes.map(r => ({ k:r.k, n:r.n, sub:r.p ? nt(r.p) : '' })),
+            ps.remove, k => { ps.remove = k; }
+          )));
+          blk.appendChild(body);
+        }
+        box.appendChild(blk);
+      });
+
+      const h3 = document.createElement('p');
+      h3.className = 'hint';
+      h3.textContent = '手部與足部可分別選不同款式，例如手部做造型、足部單色。';
+      box.appendChild(h3);
 
     } else if (s.mode === 'press'){
       box.appendChild(fieldset('款式', chipRow(
-        NAIL.press.map(p => ({ k:p.k, n:p.n, sub:p.p ? nt(p.p) : '依款式報價' })),
+        NAIL.press.map(x => ({ k:x.k, n:x.n, sub:x.p ? nt(x.p) : (x.k === 'later' ? '到店討論' : '依款式報價') })),
         s.press, k => { s.press = k; }
       )));
       const w = document.createElement('p');
       w.className = 'hint warn';
       w.textContent = '⏳ 穿戴甲製作期 7–15 天，非當日完成，請提早預訂。';
       box.appendChild(w);
-    } else {
+
+    } else if (s.mode === 'care'){
       box.appendChild(fieldset('項目', chipRow(
         NAIL.careOnly.map(c => ({ k:c.k, n:c.n, sub:nt(c.p) })),
         s.care, k => { s.care = k; }
       )));
       box.appendChild(fieldset('卸甲', chipRow(
         NAIL.removes.map(r => ({ k:r.k, n:r.n, sub:r.p ? nt(r.p) : '' })),
-        s.remove, k => { s.remove = k; }
+        s.hand.remove, k => { s.hand.remove = k; }
       )));
     }
 
   } else if (calcTab === 'hair'){
+    box.appendChild(fieldset('部位還沒決定？', chipRow(
+      [{ k:'later', n:'到店再決定部位' }],
+      S.hair.later ? 'later' : '', () => { S.hair.later = !S.hair.later; if (S.hair.later) S.hair.parts = {}; }
+    )));
+    if (S.hair.later){
+      const hl = document.createElement('p');
+      hl.className = 'hint';
+      hl.textContent = '好的，到店由美容師評估後再決定部位與金額。';
+      box.appendChild(hl);
+      const r0 = CALC.hair();
+      const res0 = document.createElement('div');
+      res0.className = 'result';
+      res0.innerHTML = `<div class="rline"><span>${esc(r0.lines[0].n)}</span><span class="rp">現場報價</span></div>`;
+      box.appendChild(res0);
+      renderSummary();
+      return;
+    }
     const pWrap = document.createElement('div');
     HAIR.parts.forEach(p => {
       const disabled = S.hair.parts.whole && p.k !== 'whole';
@@ -1167,6 +1267,22 @@ function renderCalc(){
     box.appendChild(h);
 
   } else {
+    box.appendChild(fieldset('方案還沒決定？', chipRow(
+      [{ k:'later', n:'到店再決定方案' }],
+      S.glow.later ? 'later' : '', () => { S.glow.later = !S.glow.later; if (S.glow.later){ S.glow.part = ''; S.glow.plan = ''; } }
+    )));
+    if (S.glow.later){
+      const gl = document.createElement('p');
+      gl.className = 'hint';
+      gl.textContent = '好的，到店評估膚況後再決定部位與堂數。';
+      box.appendChild(gl);
+      const res0 = document.createElement('div');
+      res0.className = 'result';
+      res0.innerHTML = `<div class="rline"><span>光保養・到店再決定方案</span><span class="rp">現場報價</span></div>`;
+      box.appendChild(res0);
+      renderSummary();
+      return;
+    }
     box.appendChild(fieldset('部位', chipRow(
       [{ k:'face', n:'臉部', sub:GLOW.face.tags.slice(0, 6) + '…' },
        { k:'head', n:'頭部育髮', sub:GLOW.head.tags }],
@@ -1197,11 +1313,11 @@ function renderCalc(){
     res.innerHTML = '<p class="empty">選擇項目後，這裡會顯示金額與預估時長</p>';
   } else {
     res.innerHTML = r.lines.map(l =>
-      `<div class="rline"><span>${esc(l.n)}</span><span class="rp">${l.p === null ? '報價' : (l.p < 0 ? '−' + nt(-l.p) : nt(l.p))}</span></div>`
+      `<div class="rline"><span>${esc(l.n)}</span><span class="rp">${l.p === null ? '現場報價' : (l.p === 0 && l.from ? '現場加計' : (l.p < 0 ? '−' + nt(-l.p) : nt(l.p) + (l.from ? '+' : '')))}</span></div>`
     ).join('')
     + r.saved.map(s2 => `<div class="rline save"><span>✓ ${esc(s2)}</span><span></span></div>`).join('')
-    + `<div class="rtotal"><span class="lb">此分類小計</span><span class="v">${nt(r.total)}${r.quote ? '+' : ''}</span></div>`
-    + (r.hours ? `<div class="rtime">預估時長 約 ${fmtH(r.hours)}</div>` : '')
+    + `<div class="rtotal"><span class="lb">此分類小計</span><span class="v">${r.total === 0 && r.quote ? '現場報價' : nt(r.total) + (r.from || r.quote ? '+' : '')}</span></div>`
+    + (r.hMax ? `<div class="rtime">預估時長 約 ${fmtH(r.hMin, r.hMax)}</div>` : '')
     + r.notes.map(n => `<p class="hint${n.includes('更划算') || n.includes('非當日') ? ' warn' : ''}">※ ${esc(n)}</p>`).join('');
   }
   box.appendChild(res);
@@ -1212,9 +1328,9 @@ function renderCalc(){
     rst.style.marginTop = '12px';
     rst.textContent = '清除這個分類的選擇';
     rst.onclick = () => {
-      if (calcTab === 'nail') S.nail = { mode:'', both:false, area:'手部', jump:false, styles:{}, extras:{}, remove:'no', special:false, press:'', care:'' };
-      if (calcTab === 'hair') S.hair = { parts:{}, film:false, male:false, pack3:false };
-      if (calcTab === 'glow') S.glow = { part:'', plan:'' };
+      if (calcTab === 'nail') S.nail = blankNail();
+      if (calcTab === 'hair') S.hair = blankHair();
+      if (calcTab === 'glow') S.glow = blankGlow();
       renderCalc();
       toast('已清除');
     };
@@ -1223,22 +1339,26 @@ function renderCalc(){
   renderSummary();
 }
 
-function fmtH(h){
-  const r = Math.round(h * 2) / 2;
-  return r < 1 ? Math.round(h * 60) + ' 分鐘' : r + ' 小時';
+function fmtH(a, b){
+  const one = v => { const r = Math.round(v * 2) / 2; return r < 1 ? Math.round(v * 60) + ' 分鐘' : r + ' 小時'; };
+  if (b === undefined || Math.abs(a - b) < 0.01) return one(a);
+  const ra = Math.round(a * 2) / 2, rb = Math.round(b * 2) / 2;
+  return (ra < 1 ? one(a) : ra) + '–' + one(b);
 }
 
 /* ---------- 綜合明細 ---------- */
 function summary(){
-  const all = { lines:[], total:0, hours:0, notes:[], quote:false };
+  const all = { lines:[], total:0, hMin:0, hMax:0, notes:[], quote:false, from:false };
   ['nail', 'hair', 'glow'].forEach(k => {
     const r = CALC[k]();
     if (!r.lines.length) return;
     all.lines.push(...r.lines);
     all.total += r.total;
-    all.hours += r.hours;
+    all.hMin += r.hMin || 0;
+    all.hMax += r.hMax || 0;
     all.notes.push(...r.notes);
     if (r.quote) all.quote = true;
+    if (r.from) all.from = true;
   });
   return all;
 }
@@ -1252,10 +1372,10 @@ function renderSummary(){
     return;
   }
   el.innerHTML = a.lines.map(l =>
-    `<div class="rline"><span>${esc(l.n)}</span><span class="rp">${l.p === null ? '報價' : (l.p < 0 ? '−' + nt(-l.p) : nt(l.p))}</span></div>`
+    `<div class="rline"><span>${esc(l.n)}</span><span class="rp">${l.p === null ? '現場報價' : (l.p === 0 && l.from ? '現場加計' : (l.p < 0 ? '−' + nt(-l.p) : nt(l.p) + (l.from ? '+' : '')))}</span></div>`
   ).join('')
-  + `<div class="rtotal"><span class="lb">預估總金額</span><span class="v">${nt(a.total)}${a.quote ? '+' : ''}</span></div>`
-  + `<div class="rtime">預估總時長 約 ${fmtH(a.hours)}（實際依現場為準）</div>`;
+  + `<div class="rtotal"><span class="lb">預估總金額</span><span class="v">${a.total === 0 && a.quote ? '現場報價' : nt(a.total) + (a.from || a.quote ? '+' : '')}</span></div>`
+  + (a.hMax ? `<div class="rtime">預估總時長 約 ${fmtH(a.hMin, a.hMax)}（實際依現場為準）</div>` : '');
 }
 
 buildCalcTabs();
@@ -1319,9 +1439,9 @@ function buildMessage(){
   m += '\n🪴預約項目：\n';
   if (a.lines.length){
     a.lines.forEach((l, i) => {
-      m += `${i + 1}. ${l.n}${l.p === null ? '（需報價）' : (l.p < 0 ? ' −' + nt(-l.p) : ' ' + nt(l.p))}\n`;
+      m += `${i + 1}. ${l.n}${l.p === null ? '（現場報價）' : (l.p === 0 && l.from ? '（現場加計）' : (l.p < 0 ? ' −' + nt(-l.p) : ' ' + nt(l.p) + (l.from ? '+' : '')))}\n`;
     });
-    m += `預估金額 ${nt(a.total)}${a.quote ? ' 起' : ''}｜預估時長 約 ${fmtH(a.hours)}\n`;
+    m += `預估金額 ${a.total === 0 && a.quote ? '現場報價' : nt(a.total) + (a.from || a.quote ? '+' : '')}｜預估時長 約 ${fmtH(a.hMin, a.hMax)}\n`;
   } else {
     m += '（想先詢問，麻煩幫我評估）\n';
   }
@@ -1335,7 +1455,7 @@ function buildMessage(){
   if (note) needs.push(note);
   if (a.notes.includes('穿戴甲製作期 7–15 天，非當日完成')) needs.push('想詢問穿戴甲製作與取件時間');
   if (needs.length) m += `\n⚡️特殊要求：${needs.join('、')}\n`;
-  if (isNew) m += '\n（已閱讀預約須知）';
+  if (isNew) m += '（已閱讀預約須知）\n';
   return m;
 }
 
