@@ -393,8 +393,8 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
 <!-- ============ 預約表單 ============ -->
 <section id="book" class="wrap">
   <p class="eyebrow"><i class="star"></i>Estimate &amp; Booking<i class="star"></i></p>
-  <h2 class="sec-title">試算與預約</h2>
-  <p class="sec-note">先選項目算出金額，再填資料一鍵送出 LINE</p>
+  <h2 class="sec-title">價錢試算與預約</h2>
+  <p class="sec-note">填寫基本資料，生成預約單直接傳LINE</p>
 
   <p class="step-hd"><span class="step-no">1</span>選擇想做的項目</p>
 <div class="tabs" role="tablist" id="calcTabs"></div>
@@ -446,13 +446,13 @@ footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:va
 
     <button class="btn btn-line" type="button" id="genBtn">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.8.22.9.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1 .89.55s5.87-3.46 8-5.92C21.3 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
-      產生訊息並前往 LINE 預約
+      產生預約單傳送至 LINE 預約
     </button>
     <div id="msgWrap" hidden>
       <div class="preview" id="msgPreview"></div>
-      <button class="btn btn-ghost" type="button" id="copyBtn" style="margin-top:10px">再複製一次訊息</button>
+      <button class="btn btn-ghost" type="button" id="copyBtn" style="margin-top:10px">再複製一次</button>
     </div>
-    <p class="privacy">資料只在你的手機上組成訊息，不會上傳到任何伺服器。<br>
+    <p class="privacy">將預約訊息傳送到LINE，闆娘才會收到唷。<br>
       還沒加好友？<a href="https://lin.ee/PoVfij2" target="_blank" rel="noopener">先加入微光所 LINE</a>（ID：@760pcsxd）</p>
   </div>
 </section>
@@ -561,10 +561,10 @@ const CONFIG = {
 
   /* 活動公告：把 active 改成 true 就會出現在首頁 */
   notice: {
-    active: false,
-    title: '夏日限定活動',
-    body: '在這裡寫活動內容，可以換行。',
-    when: '活動期間：7/1 – 8/19'
+    active: true,
+    title: '闆娘搬新家',
+    body: '儲值會員回饋最高23%',
+    when: '永久有效'
   }
 };
 
