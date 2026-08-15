@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>THE LIGHT ROOM 微光所｜光療美甲・穿戴甲・無痛除毛・光保養</title>
+<meta name="description" content="高雄鳳山美甲・除毛・外泌體光保養。線上試算價格，一鍵產生 LINE 預約訊息。門口汽機車可直接停。">
+<meta name="theme-color" content="#F6F2EA">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ===================== 設計語彙 ===================== */
+:root{
+  --paper:#F6F2EA;
+  --paper-2:#FBF9F5;
+  --card:#EFE7DA;
+  --card-2:#E7DCCB;
+  --ink:#3E2F23;
+  --ink-soft:#6E5B49;
+  --ink-faint:#9C8975;
+  --caramel:#8A5E3B;
+  --gold:#C4A15A;
+  --gold-soft:#E6D6B0;
+  --line:#DCCFBB;
+  --alert:#B33A2B;
+  --ok:#5C7A5E;
+  --shadow:0 2px 16px rgba(97,73,50,.08);
+  --r:14px;
+  --bar-h:68px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC","Helvetica Neue",sans-serif;
+  font-size:15px;line-height:1.75;letter-spacing:.02em;
+  padding-bottom:calc(var(--bar-h) + env(safe-area-inset-bottom) + 8px);
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+button{font-family:inherit;font-size:inherit;color:inherit;border:0;background:none;cursor:pointer}
+input,select,textarea{font-family:inherit;font-size:16px;color:var(--ink)}
+a{color:var(--caramel)}
+.wrap{max-width:520px;margin:0 auto;padding:0 18px}
+
+/* ---- 字體角色 ---- */
+.latin{font-family:"Cormorant Garamond",serif;letter-spacing:.34em;text-transform:uppercase;font-weight:400}
+.serif{font-family:"Noto Serif TC","Noto Sans TC",serif}
+
+/* ---- 四角星：品牌記號 ---- */
+.star{display:inline-block;width:.72em;height:.72em;background:currentColor;
+  clip-path:polygon(50% 0,58% 42%,100% 50%,58% 58%,50% 100%,42% 58%,0 50%,42% 42%);
+  vertical-align:middle}
+
+/* ===================== HERO ===================== */
+header.hero{position:relative;overflow:hidden;padding:52px 0 34px;text-align:center}
+header.hero::before{content:"";position:absolute;inset:-30% -20% auto -20%;height:420px;
+  background:radial-gradient(closest-side,rgba(226,199,140,.42),rgba(246,242,234,0) 72%);
+  pointer-events:none}
+.logo-arch{position:relative;width:132px;margin:0 auto 20px;animation:rise .9s cubic-bezier(.2,.7,.3,1) both}
+.logo-arch svg{width:100%;height:auto;display:block}
+.hero h1{margin:0;font-size:12px}
+.hero .en{color:var(--caramel);font-size:13px}
+.hero .zh{font-family:"Noto Serif TC",serif;font-size:31px;letter-spacing:.3em;
+  text-indent:.3em;margin:8px 0 0;font-weight:600;animation:rise .9s .1s cubic-bezier(.2,.7,.3,1) both}
+.slogan{font-family:"Noto Serif TC",serif;font-size:16px;color:var(--ink-soft);
+  margin:16px 0 0;line-height:2;animation:rise .9s .2s cubic-bezier(.2,.7,.3,1) both}
+.hero-meta{margin-top:20px;font-size:13px;color:var(--ink-soft);animation:rise .9s .3s cubic-bezier(.2,.7,.3,1) both}
+.hero-meta b{color:var(--caramel);font-weight:500}
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---- 星形分隔 ---- */
+.rule{display:flex;align-items:center;gap:12px;color:var(--gold);margin:34px 0 0}
+.rule::before,.rule::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,transparent,var(--line),transparent)}
+
+/* ===================== 區塊 ===================== */
+section{padding:38px 0 4px;scroll-margin-top:8px}
+.eyebrow{display:flex;align-items:center;gap:8px;justify-content:center;
+  color:var(--gold);font-size:11px;letter-spacing:.3em;text-transform:uppercase;
+  font-family:"Cormorant Garamond",serif}
+.sec-title{font-family:"Noto Serif TC",serif;font-size:24px;font-weight:600;
+  text-align:center;margin:8px 0 6px;letter-spacing:.12em}
+.sec-note{text-align:center;color:var(--ink-faint);font-size:13px;margin:0 0 20px}
+
+/* ---- 公告 ---- */
+#notice{padding-top:26px}
+.notice-card{background:linear-gradient(160deg,#F3E6C9,#EFE7DA);border:1px solid var(--gold-soft);
+  border-radius:var(--r);padding:16px 18px;box-shadow:var(--shadow)}
+.notice-card h3{margin:0 0 6px;font-family:"Noto Serif TC",serif;font-size:17px;letter-spacing:.06em}
+.notice-card p{margin:0;font-size:14px;color:var(--ink-soft);white-space:pre-line}
+.notice-card .when{margin-top:8px;font-size:12px;color:var(--caramel);letter-spacing:.08em}
+
+/* ---- 服務總覽 ---- */
+.svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.svc{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);
+  padding:18px 14px;text-align:center;display:block;width:100%;text-decoration:none;color:inherit;
+  font-size:15px;transition:transform .2s,box-shadow .2s}
+.svc:active{transform:scale(.98)}
+.svc .ic{width:34px;height:34px;margin:0 auto 10px;color:var(--caramel)}
+.svc .ic svg{width:100%;height:100%}
+.svc b{display:block;font-family:"Noto Serif TC",serif;font-size:16px;font-weight:600;letter-spacing:.08em}
+.svc span{display:block;font-size:12px;color:var(--ink-faint);margin-top:4px;letter-spacing:.02em}
+
+/* ---- 分頁籤 ---- */
+.tabs{display:flex;gap:6px;overflow-x:auto;padding:2px 0 12px;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;padding:8px 15px;border-radius:100px;border:1px solid var(--line);
+  background:var(--paper-2);color:var(--ink-soft);font-size:14px;white-space:nowrap;transition:.2s}
+.tab[aria-selected="true"]{background:var(--caramel);border-color:var(--caramel);color:#FDF9F2;font-weight:500}
+
+/* ---- 價目表 ---- */
+.panel[hidden]{display:none}
+.pgroup{margin-bottom:22px}
+.pgroup h4{display:inline-flex;align-items:center;gap:7px;margin:0 0 4px;
+  font-family:"Noto Serif TC",serif;font-size:16px;font-weight:600;letter-spacing:.1em;
+  background:var(--card);border-radius:100px;padding:4px 14px 5px}
+.prow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;
+  padding:9px 2px;border-bottom:1px dashed var(--line)}
+.prow:last-child{border-bottom:0}
+.prow .nm{flex:1}
+.prow .nm small{display:block;color:var(--ink-faint);font-size:12px;line-height:1.6}
+.prow .pr{font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:.08em;
+  color:var(--caramel);white-space:nowrap}
+.pnote{font-size:12.5px;color:var(--ink-faint);margin:8px 2px 0;line-height:1.8}
+.badge{display:inline-block;font-size:11px;letter-spacing:.06em;padding:2px 9px;border-radius:100px;
+  background:var(--gold-soft);color:#6B4E20;margin-left:6px;vertical-align:middle}
+
+/* ---- 儲值卡 ---- */
+.tier{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 16px;margin-bottom:10px;position:relative;overflow:hidden}
+.tier.hot{border-color:var(--gold);background:linear-gradient(150deg,#F7EDD8,#FBF9F5)}
+.tier .flag{position:absolute;top:0;right:0;background:var(--gold);color:#fff;font-size:11px;
+  padding:3px 11px;border-bottom-left-radius:10px;letter-spacing:.08em}
+.tier .amt{font-family:"Cormorant Garamond",serif;font-size:27px;letter-spacing:.06em;color:var(--ink)}
+.tier .rate{font-size:12px;color:var(--caramel);margin-left:8px;letter-spacing:.04em}
+.tier ul{margin:8px 0 0;padding-left:1.05em;font-size:13.5px;color:var(--ink-soft);line-height:1.9}
+.tier ul li::marker{color:var(--gold)}
+.vip-note{background:var(--card);border-radius:var(--r);padding:13px 16px;font-size:13px;
+  color:var(--ink-soft);line-height:1.9;margin-top:4px}
+.vip-note b{color:var(--caramel)}
+
+/* ===================== 試算器 ===================== */
+.calc{background:var(--paper-2);border:1px solid var(--line);border-radius:18px;
+  padding:16px 15px 18px;box-shadow:var(--shadow)}
+.fset{margin-bottom:18px}
+.fset > legend, .flabel{font-family:"Noto Serif TC",serif;font-size:14.5px;font-weight:600;
+  letter-spacing:.1em;color:var(--ink);margin-bottom:9px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{padding:8px 14px;border:1px solid var(--line);border-radius:100px;background:var(--paper);
+  font-size:14px;color:var(--ink-soft);transition:.15s;line-height:1.4;text-align:center}
+.chip[aria-pressed="true"],.chip.on{background:var(--caramel);border-color:var(--caramel);color:#FDF9F2}
+.chip small{display:block;font-size:11px;opacity:.8}
+
+.stepper{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:9px 0;border-bottom:1px dashed var(--line)}
+.stepper:last-of-type{border-bottom:0}
+.stepper .lb{flex:1;font-size:14px;line-height:1.5}
+.stepper .lb small{display:block;color:var(--ink-faint);font-size:11.5px}
+.stepper .ctrl{display:flex;align-items:center;gap:2px;flex:0 0 auto}
+.stepper .ctrl button{width:32px;height:32px;border-radius:9px;border:1px solid var(--line);
+  background:var(--paper);font-size:17px;line-height:1;color:var(--caramel);display:grid;place-items:center}
+.stepper .ctrl button:disabled{opacity:.32}
+.stepper .ctrl .v{min-width:30px;text-align:center;font-family:"Cormorant Garamond",serif;font-size:18px}
+.stepper.zero .lb{color:var(--ink-soft)}
+
+.chkrow{display:flex;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px dashed var(--line);font-size:14px}
+.chkrow:last-of-type{border-bottom:0}
+.chkrow input[type=checkbox]{width:20px;height:20px;accent-color:var(--caramel);flex:0 0 auto;margin:0}
+.chkrow .nm{flex:1}
+.chkrow .nm small{display:block;color:var(--ink-faint);font-size:11.5px}
+.chkrow .pr{color:var(--caramel);font-family:"Cormorant Garamond",serif;font-size:17px}
+
+.hint{font-size:12.5px;color:var(--ink-faint);line-height:1.8;margin:8px 0 0}
+.hint.warn{color:var(--alert)}
+
+/* ---- 結果 ---- */
+.result{margin-top:14px;border-top:2px solid var(--line);padding-top:14px}
+.rline{display:flex;justify-content:space-between;gap:10px;font-size:13.5px;color:var(--ink-soft);padding:3px 0}
+.rline .rp{font-family:"Cormorant Garamond",serif;font-size:15px;color:var(--ink)}
+.rline.save{color:var(--ok)}
+.rtotal{display:flex;justify-content:space-between;align-items:baseline;margin-top:10px;
+  padding-top:10px;border-top:1px solid var(--line)}
+.rtotal .lb{font-family:"Noto Serif TC",serif;font-size:15px;letter-spacing:.1em}
+.rtotal .v{font-family:"Cormorant Garamond",serif;font-size:32px;color:var(--caramel);letter-spacing:.04em}
+.rtime{text-align:right;font-size:12.5px;color:var(--ink-faint);margin-top:2px}
+.empty{color:var(--ink-faint);font-size:13.5px;text-align:center;padding:10px 0}
+
+/* ===================== 預約表單 ===================== */
+.form-grid{display:grid;gap:12px}
+.field label{display:block;font-size:13px;color:var(--ink-soft);margin-bottom:5px;letter-spacing:.06em}
+.field label .opt{color:var(--ink-faint);font-size:11.5px}
+.field input,.field textarea,.field select{width:100%;padding:11px 13px;border:1px solid var(--line);
+  border-radius:11px;background:var(--paper-2);outline:none;transition:.15s}
+.field input:focus,.field textarea:focus{border-color:var(--caramel);box-shadow:0 0 0 3px rgba(138,94,59,.1)}
+.field textarea{min-height:74px;resize:vertical;line-height:1.7}
+.slot{display:grid;grid-template-columns:1fr 108px;gap:8px;margin-bottom:8px}
+.slot input{padding:10px 11px}
+
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  padding:15px;border-radius:13px;font-size:16px;font-weight:500;letter-spacing:.08em;
+  transition:transform .15s,filter .15s;text-decoration:none}
+.btn:active{transform:scale(.985)}
+.btn-line{background:#06C755;color:#fff;box-shadow:0 3px 14px rgba(6,199,85,.26)}
+.btn-ghost{background:var(--paper-2);border:1px solid var(--line);color:var(--ink-soft);font-size:14.5px;padding:12px}
+.btn svg{width:20px;height:20px;flex:0 0 auto}
+
+.preview{background:var(--card);border-radius:13px;padding:14px 15px;margin-top:12px;
+  font-size:13px;line-height:1.85;white-space:pre-wrap;word-break:break-word;color:var(--ink);
+  max-height:280px;overflow:auto;border:1px solid var(--line)}
+.privacy{font-size:11.5px;color:var(--ink-faint);text-align:center;margin-top:10px;line-height:1.7}
+
+/* ===================== 須知 ===================== */
+.policy{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:16px 17px}
+.policy ol{margin:0;padding-left:1.2em}
+.policy li{padding:6px 0;font-size:14px;line-height:1.85}
+.policy li::marker{color:var(--gold);font-family:"Cormorant Garamond",serif}
+.policy .hl{color:var(--alert);font-weight:700}
+.fee{background:var(--card);border-radius:11px;padding:12px 14px;margin-top:12px}
+.fee h5{margin:0 0 6px;font-size:14px;font-family:"Noto Serif TC",serif;letter-spacing:.08em}
+.fee h5 mark{background:var(--gold);color:#4A3410;padding:1px 8px;border-radius:5px}
+.fee p{margin:3px 0;font-size:13.5px;color:var(--ink-soft)}
+.policy-foot{text-align:center;font-family:"Noto Serif TC",serif;color:var(--ink-faint);
+  font-size:13px;margin-top:14px;letter-spacing:.14em}
+
+/* ===================== 交通 ===================== */
+.addr{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--r);padding:16px 17px}
+.addr .a1{font-family:"Noto Serif TC",serif;font-size:17px;letter-spacing:.04em;line-height:1.7}
+.park{display:inline-flex;align-items:center;gap:6px;background:var(--gold-soft);color:#6B4E20;
+  border-radius:100px;padding:4px 13px;font-size:13px;margin-top:9px;letter-spacing:.04em}
+.near{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
+.near h5{margin:0 0 8px;font-size:13px;color:var(--ink-soft);letter-spacing:.1em;font-weight:500}
+.near ul{list-style:none;margin:0;padding:0;display:grid;gap:5px}
+.near li{display:flex;justify-content:space-between;font-size:13.5px;color:var(--ink-soft)}
+.near li b{font-weight:400;color:var(--caramel);font-family:"Cormorant Garamond",serif;font-size:15px}
+.walk{margin-top:12px;font-size:13px;color:var(--ink-soft);line-height:1.8}
+
+/* ===================== 頁尾 ===================== */
+footer{text-align:center;padding:38px 0 30px;color:var(--ink-faint);font-size:12.5px;line-height:2}
+footer .fl{display:flex;gap:18px;justify-content:center;margin-bottom:14px}
+footer .fl a{color:var(--caramel);text-decoration:none;font-size:13.5px}
+footer .mark{font-family:"Cormorant Garamond",serif;letter-spacing:.3em;color:var(--gold);font-size:12px}
+
+/* ===================== 底部固定列 ===================== */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:60;
+  background:rgba(246,242,234,.93);backdrop-filter:blur(12px);
+  border-top:1px solid var(--line);
+  padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+  display:flex;gap:8px;max-width:520px;margin:0 auto}
+.bar a,.bar button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  padding:7px 4px;border-radius:12px;text-decoration:none;font-size:11.5px;letter-spacing:.06em;
+  color:var(--ink-soft);border:1px solid transparent}
+.bar a svg,.bar button svg{width:21px;height:21px}
+.bar .primary{flex:1.5;background:#06C755;color:#fff;font-weight:500}
+.bar .sec{background:var(--paper-2);border-color:var(--line)}
+
+/* ---- 步驟標題 ---- */
+.step-hd{display:flex;align-items:center;gap:9px;margin:22px 0 10px;
+  font-family:"Noto Serif TC",serif;font-size:15.5px;font-weight:600;letter-spacing:.1em}
+.step-hd:first-of-type{margin-top:4px}
+.step-no{width:23px;height:23px;flex:0 0 auto;border-radius:50%;background:var(--caramel);color:#FDF9F2;
+  display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:14px;letter-spacing:0}
+
+/* ---- 底部選單面板 ---- */
+.sheet-back{position:fixed;inset:0;background:rgba(62,47,35,.42);z-index:70;
+  opacity:0;transition:opacity .25s;backdrop-filter:blur(2px)}
+.sheet-back.show{opacity:1}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:75;max-width:520px;margin:0 auto;
+  background:var(--paper);border-radius:22px 22px 0 0;border-top:1px solid var(--line);
+  padding:8px 18px calc(20px + env(safe-area-inset-bottom));
+  transform:translateY(102%);transition:transform .3s cubic-bezier(.25,.8,.3,1);
+  box-shadow:0 -8px 34px rgba(97,73,50,.18)}
+.sheet.show{transform:translateY(0)}
+.sheet-grab{width:38px;height:4px;border-radius:4px;background:var(--line);margin:2px auto 12px}
+.sheet-hd{text-align:center;margin:0 0 12px;color:var(--gold);font-family:"Noto Serif TC",serif;
+  font-size:13px;letter-spacing:.24em}
+.sheet-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.sheet-list button{display:flex;align-items:center;gap:9px;padding:13px 14px;text-align:left;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:13px;
+  font-size:14.5px;color:var(--ink);letter-spacing:.04em;transition:.15s}
+.sheet-list button:active{background:var(--card)}
+.sheet-list button svg{width:19px;height:19px;flex:0 0 auto;color:var(--caramel)}
+.sheet-ext{display:flex;gap:10px;margin-top:10px}
+.sheet-ext a{flex:1;text-align:center;padding:11px;border-radius:13px;background:var(--card);
+  color:var(--caramel);text-decoration:none;font-size:13.5px;letter-spacing:.04em}
+
+/* ---- Toast ---- */
+.toast{position:fixed;left:50%;bottom:calc(var(--bar-h) + 22px);transform:translate(-50%,14px);
+  background:var(--ink);color:#FBF7F0;padding:11px 20px;border-radius:100px;font-size:13.5px;
+  opacity:0;pointer-events:none;transition:.28s;z-index:80;letter-spacing:.04em;max-width:88vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ---- a11y ---- */
+:focus-visible{outline:2px solid var(--caramel);outline-offset:2px;border-radius:6px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+@media (max-width:340px){
+  .svc-grid{grid-template-columns:1fr}
+  .slot{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="logo-arch">
+      <svg viewBox="0 0 120 132" fill="none" stroke="#8A5E3B" stroke-width="1.3" aria-hidden="true">
+        <path d="M60 118c-16 0-29-13-29-29V58a29 29 0 0 1 58 0v31c0 16-13 29-29 29z" stroke="#C4A15A" stroke-width="1"/>
+        <circle cx="60" cy="52" r="9"/>
+        <g stroke-linecap="round">
+          <path d="M60 43V31M60 61v12M51 52H39M69 52h12M53.6 45.6l-8.5-8.5M66.4 58.4l8.5 8.5M66.4 45.6l8.5-8.5M53.6 58.4l-8.5 8.5"/>
+        </g>
+        <path d="M60 73v40" stroke-linecap="round"/>
+        <path d="M60 88c-7-1-12-6-13-13 7 0 12 5 13 13zM60 100c7-1 12-6 13-13-7 0-12 5-13 13z"/>
+        <path d="M34 128c-6-6-9-14-9-23V88c0-4 4-6 6-3l7 10c2 3 3 6 3 9v24" stroke-linecap="round"/>
+        <path d="M86 128c6-6 9-14 9-23V88c0-4-4-6-6-3l-7 10c-2 3-3 6-3 9v24" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <h1>
+      <span class="latin en">The Light Room</span>
+      <span class="zh" style="display:block">微光所</span>
+    </h1>
+    <p class="slogan">「每一個你<br>都可以在微光中 再次盛開」</p>
+    <p class="hero-meta">高雄鳳山　<b>光療美甲</b>・<b>穿戴甲</b>・<b>無痛除毛</b>・<b>光保養</b></p>
+    <div class="rule"><i class="star"></i></div>
+  </div>
+</header>
+
+<!-- ============ 活動公告（可開關） ============ -->
+<section id="notice" class="wrap" hidden>
+  <div class="notice-card">
+    <h3 id="ntTitle"></h3>
+    <p id="ntBody"></p>
+    <div class="when" id="ntWhen"></div>
+  </div>
+</section>
+
+<!-- ============ 服務總覽 ============ -->
+<section id="services" class="wrap">
+  <p class="eyebrow"><i class="star"></i>Services<i class="star"></i></p>
+  <h2 class="sec-title">服務項目</h2>
+  <p class="sec-note">點選項目直接查看價目</p>
+  <div class="svc-grid">
+    <button type="button" class="svc" data-goto="nail">
+      <div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M11 28V13a5 5 0 0 1 10 0v15z"/><path d="M11.5 13.5c2-2 7-2 9 0" /><circle cx="16" cy="8" r="1"/><path d="M22 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" fill="currentColor" stroke="none"/></svg></div>
+      <b>光療美甲</b><span>手部・足部</span>
+    </button>
+    <button type="button" class="svc" data-goto="press">
+      <div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="6" y="7" width="9" height="13" rx="4.5"/><rect x="17" y="12" width="9" height="13" rx="4.5"/><path d="M8 24h6M19 5h5"/></svg></div>
+      <b>仿真穿戴甲</b><span>公版・客製</span>
+    </button>
+    <button type="button" class="svc" data-goto="hair">
+      <div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 4v24M6 10l20 12M26 10L6 22" stroke-linecap="round"/><circle cx="16" cy="16" r="4"/></svg></div>
+      <b>冰感無痛除毛</b><span>白雪公主</span>
+    </button>
+    <button type="button" class="svc" data-goto="glow">
+      <div class="ic"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M16 5a7 7 0 0 0-4 12.8V21h8v-3.2A7 7 0 0 0 16 5z"/><path d="M13 24h6M14 27h4" stroke-linecap="round"/></svg></div>
+      <b>100億光保養</b><span>臉部・育髮</span>
+    </button>
+  </div>
+</section>
+
+<!-- ============ 價目表 ============ -->
+<section id="price" class="wrap">
+  <p class="eyebrow"><i class="star"></i>Price List<i class="star"></i></p>
+  <h2 class="sec-title">價目表</h2>
+  <p class="sec-note">實際價格依現場評估為準</p>
+  <div class="tabs" role="tablist" id="priceTabs"></div>
+  <div id="priceBody"></div>
+</section>
+
+<!-- ============ 儲值方案 ============ -->
+<section id="stored" class="wrap">
+  <p class="eyebrow"><i class="star"></i>Membership<i class="star"></i></p>
+  <h2 class="sec-title">儲值方案</h2>
+  <p class="sec-note">可現儲現抵・回饋率越高越划算</p>
+  <div id="tierList"></div>
+  <div class="vip-note">
+    <b>VIP 卸甲</b>｜卸甲永久免費，至儲值金使用完畢為止。<br>
+    <b>贈送除毛堂數</b>｜不限本人使用，可轉贈親友。<br>
+    <span style="color:var(--ink-faint);font-size:12px">回饋率為贈送金額＋贈品市價的估算值，VIP 卸甲與活動款未計入。</span>
+  </div>
+</section>
+
+<!-- ============ 試算器 ============ -->
+
+
+<!-- ============ 預約表單 ============ -->
+<section id="book" class="wrap">
+  <p class="eyebrow"><i class="star"></i>Estimate &amp; Booking<i class="star"></i></p>
+  <h2 class="sec-title">試算與預約</h2>
+  <p class="sec-note">先選項目算出金額，再填資料一鍵送出 LINE</p>
+
+  <p class="step-hd"><span class="step-no">1</span>選擇想做的項目</p>
+<div class="tabs" role="tablist" id="calcTabs"></div>
+  <div class="calc" id="calcBody"></div>
+
+  <p class="step-hd"><span class="step-no">2</span>確認明細</p>
+  <div class="calc">
+    <div id="sumBox" class="result" style="margin-top:0;border-top:0;padding-top:0"></div>
+  </div>
+
+  <p class="step-hd"><span class="step-no">3</span>填寫預約資料</p>
+  <div class="calc">
+    <div class="form-grid">
+      <div class="field">
+        <label for="fName">姓名</label>
+        <input id="fName" type="text" autocomplete="name" placeholder="王小明">
+      </div>
+      <div class="field">
+        <label for="fTel">電話</label>
+        <input id="fTel" type="tel" inputmode="numeric" autocomplete="tel" placeholder="0912345678">
+      </div>
+      <div class="field">
+        <label for="fBirth">生日 <span class="opt">選填・用於生日優惠</span></label>
+        <input id="fBirth" type="text" inputmode="numeric" placeholder="03/15">
+      </div>
+      <div class="chkrow" style="border:0;padding:2px">
+        <input type="checkbox" id="fNew">
+        <label for="fNew" class="nm" style="margin:0;font-size:14px;color:var(--ink)">我是第一次來（新客）</label>
+      </div>
+    </div>
+
+    <div class="fset" style="margin-top:18px">
+      <span class="flabel">理想時段<span style="font-weight:400;color:var(--ink-faint);font-size:12px;letter-spacing:0">　留 2–3 組比較快約到</span></span>
+      <div id="slots"></div>
+      <button class="btn btn-ghost" type="button" id="addSlot" style="margin-top:4px">＋ 再加一組時段</button>
+      <div class="field" style="margin-top:12px">
+        <label for="fLeave">幾點前需要離開 <span class="opt">選填</span></label>
+        <input id="fLeave" type="text" placeholder="例：18:00 前">
+      </div>
+    </div>
+
+    <div class="fset">
+      <span class="flabel">特殊要求</span>
+      <div class="chips" id="needChips"></div>
+      <div class="field" style="margin-top:10px">
+        <textarea id="fNote" placeholder="其他想告訴我們的事（選填）"></textarea>
+      </div>
+    </div>
+
+    <button class="btn btn-line" type="button" id="genBtn">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.8.22.9.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1 .89.55s5.87-3.46 8-5.92C21.3 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
+      產生訊息並前往 LINE 預約
+    </button>
+    <div id="msgWrap" hidden>
+      <div class="preview" id="msgPreview"></div>
+      <button class="btn btn-ghost" type="button" id="copyBtn" style="margin-top:10px">再複製一次訊息</button>
+    </div>
+    <p class="privacy">資料只在你的手機上組成訊息，不會上傳到任何伺服器。<br>
+      還沒加好友？<a href="https://lin.ee/PoVfij2" target="_blank" rel="noopener">先加入微光所 LINE</a>（ID：@760pcsxd）</p>
+  </div>
+</section>
+
+<!-- ============ 預約須知 ============ -->
+<section id="policy" class="wrap">
+  <p class="eyebrow"><i class="star"></i>Please Read<i class="star"></i></p>
+  <h2 class="sec-title">預約須知</h2>
+  <p class="sec-note">務必詳讀，保障您的權益</p>
+  <div class="policy">
+    <ol>
+      <li>預約保留 <span class="hl">10 分鐘</span>，超時視同臨時取消。</li>
+      <li>於 <span class="hl">24 小時內</span>取消、更改時間，或當日無故未到，需支付<b>空檔補償金</b>，且下次預約須先付訂金 $1000（可折抵當日消費）。</li>
+      <li>身體不適、路上意外造成的更動，<b>需附上證明</b>。</li>
+    </ol>
+    <div class="fee">
+      <h5><mark>空檔補償金</mark></h5>
+      <p>美甲：一個項目 $1000（手＋足＝兩個項目 $2000，以此類推）</p>
+      <p>除毛：鬍子、腋下 $500，其餘部位 $1000</p>
+    </div>
+    <p class="policy-foot">✦ 微 光 所 ✦</p>
+  </div>
+</section>
+
+<!-- ============ 交通 ============ -->
+<section id="map" class="wrap">
+  <p class="eyebrow"><i class="star"></i>Find Us<i class="star"></i></p>
+  <h2 class="sec-title">交通與位置</h2>
+  <p class="sec-note">微光所已搬家囉</p>
+  <div class="addr">
+    <p class="a1">高雄市鳳山區<br>保泰路 270 巷 15 號</p>
+    <span class="park">🅿️ 汽機車門口可直接停</span>
+    <a class="btn btn-line" style="background:var(--caramel);box-shadow:0 3px 14px rgba(138,94,59,.24);margin-top:14px"
+       href="https://www.google.com/maps/dir/?api=1&destination=%E9%AB%98%E9%9B%84%E5%B8%82%E9%B3%B3%E5%B1%B1%E5%8D%80%E4%BF%9D%E6%B3%B0%E8%B7%AF270%E5%B7%B715%E8%99%9F"
+       target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      開啟 Google 地圖導航
+    </a>
+    <div class="near">
+      <h5>鄰近鳳山快速道路・國道 1 號</h5>
+      <ul>
+        <li><span>五甲享溫馨</span><b>3 min</b></li>
+        <li><span>肉豆市場</span><b>3 min</b></li>
+        <li><span>瑞隆多納之</span><b>5 min</b></li>
+        <li><span>鳳南鳳榮</span><b>5 min</b></li>
+        <li><span>鳳山自強夜市</span><b>5 min</b></li>
+        <li><span>前鎮高中・草衙</span><b>10 min</b></li>
+      </ul>
+      <p class="walk">👍 走路可到：全家便利商店、早餐店（蠻多的）、飯麵店都有。</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">
+    <a href="https://www.instagram.com/light_room975" target="_blank" rel="noopener">作品集 IG</a>
+    <a href="https://www.threads.net/@light_room975" target="_blank" rel="noopener">Threads</a>
+    <a href="https://www.instagram.com/o_uu20" target="_blank" rel="noopener">老闆娘 IG</a>
+  </div>
+  <div class="mark">The Light Room</div>
+  微光所　高雄市鳳山區保泰路270巷15號<br>
+  價格如有調整，以店內公告為準
+</footer>
+
+<!-- ============ 底部固定列 ============ -->
+<nav class="bar" aria-label="快速功能">
+  <a class="primary" href="https://lin.ee/PoVfij2" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.2 7.9.3.07.8.22.9.5.1.26.07.66.03.92l-.14.86c-.04.26-.2 1 .89.55s5.87-3.46 8-5.92C21.3 14.2 22 12.7 22 11c0-4.4-4.5-8-10-8z"/></svg>
+    官方 LINE
+  </a>
+  <a class="sec" href="https://www.google.com/maps/dir/?api=1&amp;destination=%E9%AB%98%E9%9B%84%E5%B8%82%E9%B3%B3%E5%B1%B1%E5%8D%80%E4%BF%9D%E6%B3%B0%E8%B7%AF270%E5%B7%B715%E8%99%9F" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+    導航
+  </a>
+  <button class="sec" type="button" id="menuBtn" aria-expanded="false" aria-controls="menuSheet">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+    選單
+  </button>
+</nav>
+
+<div class="sheet-back" id="sheetBack" hidden></div>
+<div class="sheet" id="menuSheet" role="dialog" aria-modal="true" aria-label="網站選單" hidden>
+  <div class="sheet-grab"></div>
+  <p class="sheet-hd"><i class="star"></i> 微光所 <i class="star"></i></p>
+  <div class="sheet-list" id="sheetList"></div>
+  <div class="sheet-ext">
+    <a href="https://www.instagram.com/light_room975" target="_blank" rel="noopener">作品集 IG</a>
+    <a href="https://lin.ee/PoVfij2" target="_blank" rel="noopener">加入官方 LINE</a>
+  </div>
+  <button class="btn btn-ghost" type="button" id="sheetClose" style="margin-top:12px">關閉</button>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   THE LIGHT ROOM 微光所
+   ── 要改價格、活動、工時，只需要改下面「設定區」 ──
+   ============================================================ */
+
+/* ---------- ① 基本設定 ---------- */
+const CONFIG = {
+  lineId: '@760pcsxd',
+  lineAdd: 'https://lin.ee/PoVfij2',
+  ig: 'https://www.instagram.com/light_room975',
+
+  /* 活動公告：把 active 改成 true 就會出現在首頁 */
+  notice: {
+    active: false,
+    title: '夏日限定活動',
+    body: '在這裡寫活動內容，可以換行。',
+    when: '活動期間：7/1 – 8/19'
+  }
+};
+
+/* ---------- ② 光療美甲 ---------- */
+const NAIL = {
+  base: 699,
+  jump: 100,
+  styles: [
+    { k:'fr',   n:'法式',        p:100 },
+    { k:'cat',  n:'貓眼光線',    p:50  },
+    { k:'bl',   n:'腮紅造型',    p:50  },
+    { k:'om1',  n:'暈染・一層',  p:100 },
+    { k:'om2',  n:'暈染・疊層',  p:150, hard:true },
+    { k:'hd1',  n:'手繪・點綴',  p:50  },
+    { k:'hd2',  n:'手繪・精緻',  p:100, hard:true },
+    { k:'hd3',  n:'手繪・複雜',  p:150, hard:true },
+    { k:'gr1',  n:'漸層・實色',  p:100 },
+    { k:'gr2',  n:'漸層・雙色',  p:150, hard:true },
+    { k:'mr1',  n:'鏡面・單色',  p:50  },
+    { k:'mr2',  n:'鏡面・立體',  p:100, hard:true },
+    { k:'mr3',  n:'鏡面・複雜',  p:150, hard:true },
+    { k:'gm1',  n:'鑽飾・點綴',  p:100 },
+    { k:'gm2',  n:'鑽飾・精緻',  p:150, hard:true },
+    { k:'gm3',  n:'鑽飾・複雜',  p:200, hard:true }
+  ],
+  extras: [
+    { k:'thick', n:'超長加厚', p:100, unit:'指' },
+    { k:'fix',   n:'斷裂補甲', p:50,  unit:'指' },
+    { k:'ext',   n:'延甲',     p:100, unit:'指' },
+    { k:'extL',  n:'延甲・超長', p:150, unit:'指' }
+  ],
+  removes: [
+    { k:'no',    n:'不需要',            p:0   },
+    { k:'here',  n:'本店卸甲',          p:100 },
+    { k:'other', n:'他店卸甲',          p:200 },
+    { k:'hard',  n:'水晶／不可卸甲片',   p:300 }
+  ],
+  press: [
+    { k:'std', n:'公版單色',  p:599, desc:'製作期 7–15 天' },
+    { k:'cus', n:'客製款',    p:null, desc:'依款式報價・製作期 7–15 天' }
+  ],
+  careOnly: [
+    { k:'stop', n:'卸甲不續作', p:500, desc:'基礎保養＋護甲油＋護手霜' },
+    { k:'basic',n:'純基礎保養', p:300 }
+  ],
+  /* 工時（小時） */
+  time: { solid:1.5, design:2, designHard:3, ext:1, remove:0.5, bothMul:1.8, pressPickup:0.5 }
+};
+
+/* ---------- ③ 白雪公主冰感無痛除毛 ---------- */
+const HAIR = {
+  parts: [
+    { k:'beard',   n:'鬍子',       p:300,  t:20 },
+    { k:'armpit',  n:'腋下',       p:600,  t:20 },
+    { k:'forearm', n:'前手臂',     p:1200, t:30 },
+    { k:'fullarm', n:'全手臂',     p:1500, t:40 },
+    { k:'belly',   n:'腹部',       p:1200, t:30 },
+    { k:'calf',    n:'小腿',       p:1200, t:30 },
+    { k:'fullleg', n:'全腿',       p:1800, t:45 },
+    { k:'private', n:'私密處全除', p:2200, t:40 },
+    { k:'whole',   n:'全身無痛除毛', p:7500, t:90, desc:'含背部・原價 $8200', solo:true }
+  ],
+  combos: [
+    { n:'腋下＋私密處全除', m:['armpit','private'],  p:2480 },
+    { n:'腋下＋全腿',       m:['armpit','fullleg'],  p:2100 },
+    { n:'全手＋小腿',       m:['fullarm','calf'],    p:2380 }
+  ],
+  film: { n:'軟糖軟膜', p:200 },
+  male: { n:'男性部位加價', p:300 },
+  pack3: { n:'包三堂 9 折', rate:0.9 }
+};
+
+/* ---------- ④ 100 億的光保養 ---------- */
+const GLOW = {
+  face: {
+    n:'臉部', plan:'臉部小燈泡計畫', tags:'酒糟肌、敏感肌、臉部缺水暗沉、痘痘肌',
+    first:3480, single:3980, pkg:{ 3:11000, 5:17500, 10:32000 }, t:60
+  },
+  head: {
+    n:'頭部', plan:'頭部森林育髮計劃', tags:'髮際線、貓耳朵、地中海',
+    first:4980, single:5980, pkg:{ 3:15800, 5:24500, 10:47000 }, t:60
+  }
+};
+
+/* ---------- ⑤ 儲值方案 ---------- */
+const TIERS = [
+  { amt:3000,  cash:200,  gifts:[], est:200 },
+  { amt:5000,  cash:300,  gifts:['冰感腋下除毛 1 堂','本店卸甲 1 次'], est:1000, flag:'小資首選' },
+  { amt:10000, cash:800,  gifts:['冰感腋下除毛 1 堂','本店卸甲 2 次'], est:1600 },
+  { amt:15000, cash:1500, gifts:['冰感腋下除毛 3 堂','VIP 卸甲'], est:3300, flag:'約手足美甲必衝' },
+  { amt:20000, cash:2200, gifts:['VIP 卸甲','小腿／全手 2 堂 或 私密處 1 堂'], est:4600 },
+  { amt:30000, cash:3300, gifts:['冰感腋下除毛 1 堂','小腿／全手 2 堂 或 私密處 1 堂','免費足部活動款 1 次','VIP 卸甲'], est:6300 }
+];
+
+/* ============================================================
+   以下為程式邏輯
+   ============================================================ */
+const $  = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+const nt = n => '$' + n.toLocaleString('en-US');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+function toast(msg){
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+/* ---------- 公告 ---------- */
+(function notice(){
+  const n = CONFIG.notice;
+  if (!n.active) return;
+  $('#ntTitle').textContent = n.title;
+  $('#ntBody').textContent  = n.body;
+  $('#ntWhen').textContent  = n.when || '';
+  $('#notice').hidden = false;
+})();
+
+/* ============================================================
+   全站導覽選單（用 scrollIntoView，不使用 #錨點，
+   避免在 iframe／內嵌瀏覽器跳出「Open Link」對話框）
+   ============================================================ */
+const NAV = [
+  { id:'services', n:'服務項目', ic:'M4 6h16M4 12h16M4 18h10' },
+  { id:'price',    n:'價目表',   ic:'M5 4h14v16l-7-3-7 3z' },
+  { id:'stored',   n:'儲值方案', ic:'M3 8h18v10H3zM3 8l3-4h12l3 4M8 13h4' },
+  { id:'book',     n:'試算與預約', ic:'M6 3h12v18H6zM9 8h6M9 12h3M9 16h3' },
+  { id:'policy',   n:'預約須知', ic:'M12 3l8 4v6c0 4.4-3.3 7.7-8 8-4.7-.3-8-3.6-8-8V7z' },
+  { id:'map',      n:'交通位置', ic:'M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z' }
+];
+
+function goTo(id){
+  const el = document.getElementById(id);
+  if (!el) return;
+  closeSheet();
+  const reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  const y = el.getBoundingClientRect().top + window.pageYOffset - 8;
+  window.scrollTo({ top:y, behavior: reduce ? 'auto' : 'smooth' });
+}
+
+$('#sheetList').innerHTML = NAV.map(i =>
+  `<button type="button" data-nav="${i.id}">
+     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="${i.ic}"/></svg>
+     ${esc(i.n)}
+   </button>`).join('');
+$$('#sheetList button').forEach(b => b.onclick = () => goTo(b.dataset.nav));
+
+function openSheet(){
+  $('#sheetBack').hidden = false; $('#menuSheet').hidden = false;
+  requestAnimationFrame(() => {
+    $('#sheetBack').classList.add('show');
+    $('#menuSheet').classList.add('show');
+  });
+  $('#menuBtn').setAttribute('aria-expanded', 'true');
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet(){
+  $('#sheetBack').classList.remove('show');
+  $('#menuSheet').classList.remove('show');
+  $('#menuBtn').setAttribute('aria-expanded', 'false');
+  document.body.style.overflow = '';
+  setTimeout(() => { $('#sheetBack').hidden = true; $('#menuSheet').hidden = true; }, 300);
+}
+$('#menuBtn').onclick = () => ($('#menuSheet').hidden ? openSheet() : closeSheet());
+$('#sheetBack').onclick = closeSheet;
+$('#sheetClose').onclick = closeSheet;
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#menuSheet').hidden) closeSheet(); });
+
+/* ============================================================
+   價目表
+   ============================================================ */
+const PRICE = {
+  nail: { label:'光療美甲', groups:[
+    { h:'基礎 GEL', rows:[
+      ['單色','$699'], ['跳色','+$100'],
+      ['超長加厚','$100 / 指'], ['斷裂補甲','$50 / 指']
+    ]},
+    { h:'款式 STYLE', sub:'每指加價', rows:[
+      ['法式','$100 / 指'], ['貓眼光線','$50 / 指'], ['腮紅造型','$50 / 指'],
+      ['暈染|一層 / 疊層','$100 / $150'],
+      ['手繪|點綴 / 精緻 / 複雜','$50 / $100 / $150'],
+      ['漸層|實色 / 雙色','$100 / $150'],
+      ['鏡面|單色 / 立體 / 複雜','$50 / $100 / $150'],
+      ['鑽飾|點綴 / 精緻 / 複雜','$100 / $150 / $200'],
+      ['特殊限定造型|依複雜度','$100–$200 / 指']
+    ]},
+    { h:'護理 MANICURE', rows:[
+      ['卸甲|他店 / 本店','$200 / $100'],
+      ['卸甲|水晶 / 不可卸凝膠甲片','$300'],
+      ['延甲 / 超長','$100 / $150 / 指'],
+      ['卸甲不續作|基礎保養＋護甲油＋護手霜','$500'],
+      ['純基礎保養','$300']
+    ]}
+  ], note:'款式加價以「指」計算，實際款式與價格由設計師現場評估。'},
+
+  press: { label:'仿真穿戴甲', groups:[
+    { h:'穿戴甲 PRESS-ON', rows:[
+      ['公版單色','$599'],
+      ['客製款|依款式報價','報價']
+    ]}
+  ], note:'⏳ 製作期 7–15 天，請提早預訂。客製款需先討論款式後報價。'},
+
+  hair: { label:'冰感無痛除毛', groups:[
+    { h:'單次項目 BODY PART', rows:[
+      ['鬍子','$300'], ['腋下','$600'], ['前手臂','$1200'], ['全手臂','$1500'],
+      ['腹部','$1200'], ['小腿','$1200'], ['全腿','$1800'], ['私密處全除','$2200']
+    ]},
+    { h:'組合活動', rows:[
+      ['腋下＋私密處全除','$2480'],
+      ['腋下＋全腿','$2100'],
+      ['全手＋小腿','$2380'],
+      ['全身無痛除毛|含背部・原價 $8200','$7500']
+    ]}
+  ], note:'軟糖軟膜 +$200　|　男性一律部位 +$300　|　以上組合包三堂再享 9 折。'},
+
+  glow: { label:'100億光保養', groups:[
+    { h:'單堂 BODY PART', rows:[
+      ['臉部首次體驗價|60 MIN','$3480'],
+      ['臉部發光外泌體單堂|酒糟肌、敏感肌、臉部缺水暗沉、痘痘肌','$3980'],
+      ['頭部首次體驗價|60 MIN','$4980'],
+      ['頭部育髮外泌體單堂|髮際線、貓耳朵、地中海','$5980']
+    ]},
+    { h:'包堂活動', sub:'不限本人使用', rows:[
+      ['臉部小燈泡計畫｜3 堂','$11000'],
+      ['臉部小燈泡計畫｜5 堂','$17500'],
+      ['臉部小燈泡計畫｜10 堂','$32000'],
+      ['頭部森林育髮計劃｜3 堂','$15800'],
+      ['頭部森林育髮計劃｜5 堂','$24500'],
+      ['頭部森林育髮計劃｜10 堂','$47000']
+    ]}
+  ], note:'發光安瓶成分：菸鹼醯胺（維他命 B3）、乙醯六胜肽、棕櫚醯五胜肽、小黃瓜果實萃取。適合所有肌膚。'}
+};
+
+function buildPrice(){
+  const tabs = $('#priceTabs'), body = $('#priceBody');
+  tabs.innerHTML = ''; body.innerHTML = '';
+  Object.entries(PRICE).forEach(([k, d], i) => {
+    const b = document.createElement('button');
+    b.className = 'tab'; b.type = 'button'; b.role = 'tab';
+    b.textContent = d.label; b.dataset.k = k;
+    b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+    b.onclick = () => showPrice(k);
+    tabs.appendChild(b);
+
+    const p = document.createElement('div');
+    p.className = 'panel'; p.dataset.k = k; p.hidden = i !== 0;
+    p.innerHTML = d.groups.map(g => `
+      <div class="pgroup">
+        <h4>${esc(g.h)}${g.sub ? `<span class="badge">${esc(g.sub)}</span>` : ''}</h4>
+        ${g.rows.map(([n, pr]) => {
+          const [main, sub] = String(n).split('|');
+          return `<div class="prow"><div class="nm">${esc(main)}${sub ? `<small>${esc(sub)}</small>` : ''}</div><div class="pr">${esc(pr)}</div></div>`;
+        }).join('')}
+      </div>`).join('') + (d.note ? `<p class="pnote">${esc(d.note)}</p>` : '');
+    body.appendChild(p);
+  });
+}
+function showPrice(k){
+  $$('#priceTabs .tab').forEach(t => t.setAttribute('aria-selected', String(t.dataset.k === k)));
+  $$('#priceBody .panel').forEach(p => p.hidden = p.dataset.k !== k);
+}
+buildPrice();
+$$('[data-goto]').forEach(a => a.addEventListener('click', () => {
+  showPrice(a.dataset.goto);
+  goTo('price');
+}));
+
+/* ============================================================
+   儲值方案
+   ============================================================ */
+$('#tierList').innerHTML = TIERS.map(t => {
+  const rate = Math.round(t.est / t.amt * 100);
+  return `<div class="tier${t.flag ? ' hot' : ''}">
+    ${t.flag ? `<span class="flag">${esc(t.flag)}</span>` : ''}
+    <div><span class="amt">${nt(t.amt)}</span><span class="rate">實得約 ${nt(t.amt + t.est)}・回饋約 ${rate}%</span></div>
+    <ul>
+      <li>回饋金 ${nt(t.cash)}</li>
+      ${t.gifts.map(g => `<li>${esc(g)}</li>`).join('')}
+    </ul>
+  </div>`;
+}).join('');
+
+/* ============================================================
+   試算器
+   ============================================================ */
+const S = {
+  nail: { mode:'', both:false, area:'手部', jump:false, styles:{}, extras:{}, remove:'no', special:false, press:'', care:'' },
+  hair: { parts:{}, film:false, male:false, pack3:false },
+  glow: { part:'', plan:'' }
+};
+
+const CALC_TABS = [
+  { k:'nail', label:'美甲・穿戴甲' },
+  { k:'hair', label:'無痛除毛' },
+  { k:'glow', label:'光保養' }
+];
+let calcTab = 'nail';
+
+function buildCalcTabs(){
+  $('#calcTabs').innerHTML = '';
+  CALC_TABS.forEach(t => {
+    const b = document.createElement('button');
+    b.className = 'tab'; b.type = 'button'; b.role = 'tab';
+    b.textContent = t.label; b.dataset.k = t.k;
+    b.setAttribute('aria-selected', String(t.k === calcTab));
+    b.onclick = () => { calcTab = t.k; buildCalcTabs(); renderCalc(); };
+    $('#calcTabs').appendChild(b);
+  });
+}
+
+/* ---------- 元件產生器 ---------- */
+function chipRow(items, active, onPick, multi){
+  const wrap = document.createElement('div');
+  wrap.className = 'chips';
+  items.forEach(it => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'chip';
+    b.innerHTML = esc(it.n) + (it.sub ? `<small>${esc(it.sub)}</small>` : '');
+    const on = multi ? active.includes(it.k) : active === it.k;
+    b.setAttribute('aria-pressed', String(on));
+    b.onclick = () => { onPick(it.k); renderCalc(); };
+    wrap.appendChild(b);
+  });
+  return wrap;
+}
+
+function stepper(label, sub, val, max, onChange){
+  const row = document.createElement('div');
+  row.className = 'stepper' + (val ? '' : ' zero');
+  row.innerHTML = `<div class="lb">${esc(label)}${sub ? `<small>${esc(sub)}</small>` : ''}</div>`;
+  const c = document.createElement('div');
+  c.className = 'ctrl';
+  const minus = document.createElement('button');
+  minus.type = 'button'; minus.textContent = '−'; minus.disabled = val <= 0;
+  minus.setAttribute('aria-label', label + ' 減少');
+  minus.onclick = () => { onChange(Math.max(0, val - 1)); renderCalc(); };
+  const v = document.createElement('span');
+  v.className = 'v'; v.textContent = val;
+  const plus = document.createElement('button');
+  plus.type = 'button'; plus.textContent = '＋'; plus.disabled = val >= max;
+  plus.setAttribute('aria-label', label + ' 增加');
+  plus.onclick = () => { onChange(Math.min(max, val + 1)); renderCalc(); };
+  c.append(minus, v, plus);
+  row.appendChild(c);
+  return row;
+}
+
+function checkRow(id, name, sub, price, checked, onToggle){
+  const row = document.createElement('label');
+  row.className = 'chkrow'; row.htmlFor = id;
+  row.innerHTML = `<input type="checkbox" id="${id}"${checked ? ' checked' : ''}>
+    <span class="nm">${esc(name)}${sub ? `<small>${esc(sub)}</small>` : ''}</span>
+    <span class="pr">${price}</span>`;
+  row.querySelector('input').onchange = e => { onToggle(e.target.checked); renderCalc(); };
+  return row;
+}
+
+function fieldset(title, node){
+  const f = document.createElement('div');
+  f.className = 'fset';
+  f.innerHTML = `<span class="flabel">${esc(title)}</span>`;
+  f.appendChild(node);
+  return f;
+}
+
+/* ---------- 美甲計算 ---------- */
+function calcNail(){
+  const s = S.nail, lines = [], notes = [];
+  let total = 0, hours = 0, quote = false;
+  if (!s.mode) return { lines, total, hours, notes, quote, saved:[] };
+
+  if (s.mode === 'gel'){
+    const mul = s.both ? 2 : 1;
+    const areaTxt = s.both ? '手部＋足部' : s.area;
+    total += NAIL.base * mul;
+    lines.push({ n:`${areaTxt}　單色光療${mul > 1 ? ' ×2' : ''}`, p:NAIL.base * mul });
+    if (s.jump){ total += NAIL.jump * mul; lines.push({ n:'跳色', p:NAIL.jump * mul }); }
+
+    let styleFingers = 0, hasHard = false;
+    NAIL.styles.forEach(st => {
+      const q = s.styles[st.k] || 0;
+      if (!q) return;
+      styleFingers += q;
+      if (st.hard) hasHard = true;
+      const p = st.p * q;
+      total += p;
+      lines.push({ n:`${st.n} ×${q} 指`, p });
+    });
+    NAIL.extras.forEach(ex => {
+      const q = s.extras[ex.k] || 0;
+      if (!q) return;
+      const p = ex.p * q;
+      total += p;
+      lines.push({ n:`${ex.n} ×${q} 指`, p });
+    });
+    if (s.special){ quote = true; notes.push('特殊限定造型：依複雜度 $100–$200／指，現場報價'); }
+
+    const rm = NAIL.removes.find(r => r.k === s.remove);
+    if (rm && rm.p){ total += rm.p; lines.push({ n:rm.n, p:rm.p }); }
+
+    hours = styleFingers ? (hasHard || styleFingers > 10 ? NAIL.time.designHard : NAIL.time.design) : NAIL.time.solid;
+    if ((s.extras.ext || 0) + (s.extras.extL || 0) > 0) hours += NAIL.time.ext;
+    if (rm && rm.p) hours += NAIL.time.remove;
+    if (s.both) hours *= NAIL.time.bothMul;
+
+  } else if (s.mode === 'press'){
+    const it = NAIL.press.find(p => p.k === s.press);
+    if (it){
+      if (it.p){ total += it.p; lines.push({ n:`仿真穿戴甲・${it.n}`, p:it.p }); }
+      else { quote = true; lines.push({ n:'仿真穿戴甲・客製款', p:null }); }
+      hours = NAIL.time.pressPickup;
+      notes.push('穿戴甲製作期 7–15 天，非當日完成');
+    }
+  } else {
+    const it = NAIL.careOnly.find(c => c.k === s.care);
+    if (it){ total += it.p; lines.push({ n:it.n, p:it.p }); hours = NAIL.time.remove + 0.5; }
+    const rm = NAIL.removes.find(r => r.k === s.remove);
+    if (rm && rm.p){ total += rm.p; lines.push({ n:rm.n, p:rm.p }); hours += NAIL.time.remove; }
+  }
+  return { lines, total, hours, notes, quote, saved:[] };
+}
+
+/* ---------- 除毛計算（自動套用最划算組合） ---------- */
+function calcHair(){
+  const s = S.hair, lines = [], notes = [], saved = [];
+  let total = 0, mins = 0;
+  let picked = Object.keys(s.parts).filter(k => s.parts[k]);
+  if (!picked.length) return { lines, total, hours:0, notes, quote:false, saved };
+
+  if (picked.includes('whole')){
+    const w = HAIR.parts.find(p => p.k === 'whole');
+    total += w.p; mins += w.t;
+    lines.push({ n:w.n, p:w.p });
+    picked = ['whole'];
+  } else {
+    let rest = [...picked];
+    /* 貪婪套用省最多的組合 */
+    while (true){
+      let best = null;
+      HAIR.combos.forEach(c => {
+        if (!c.m.every(m => rest.includes(m))) return;
+        const sum = c.m.reduce((a, m) => a + HAIR.parts.find(p => p.k === m).p, 0);
+        if (sum > c.p && (!best || sum - c.p > best.save)) best = { c, save:sum - c.p, sum };
+      });
+      if (!best) break;
+      total += best.c.p;
+      mins += best.c.m.reduce((a, m) => a + HAIR.parts.find(p => p.k === m).t, 0);
+      lines.push({ n:`組合｜${best.c.n}`, p:best.c.p });
+      saved.push(`套用組合價，省下 ${nt(best.save)}`);
+      rest = rest.filter(m => !best.c.m.includes(m));
+    }
+    rest.forEach(k => {
+      const p = HAIR.parts.find(x => x.k === k);
+      total += p.p; mins += p.t;
+      lines.push({ n:p.n, p:p.p });
+    });
+    const whole = HAIR.parts.find(p => p.k === 'whole');
+    if (total > whole.p) notes.push(`改選「全身無痛除毛 ${nt(whole.p)}」會更划算`);
+  }
+
+  if (s.male){
+    const add = HAIR.male.p * picked.length;
+    total += add;
+    lines.push({ n:`${HAIR.male.n} ×${picked.length}`, p:add });
+  }
+  if (s.film){ total += HAIR.film.p; lines.push({ n:HAIR.film.n, p:HAIR.film.p }); }
+  if (s.pack3){
+    const before = total;
+    total = Math.round(total * HAIR.pack3.rate);
+    lines.push({ n:'包三堂 9 折', p:total - before });
+    saved.push(`包三堂折扣，省下 ${nt(before - total)}`);
+    notes.push('9 折為單次金額試算，三堂總額與堂數安排請與店家確認');
+  }
+  return { lines, total, hours:mins / 60, notes, quote:false, saved };
+}
+
+/* ---------- 光保養計算 ---------- */
+function calcGlow(){
+  const s = S.glow, lines = [], notes = [], saved = [];
+  if (!s.part || !s.plan) return { lines, total:0, hours:0, notes, quote:false, saved };
+  const g = GLOW[s.part];
+  let total = 0, sessions = 1;
+
+  if (s.plan === 'first'){ total = g.first; lines.push({ n:`${g.n}首次體驗價（60 MIN）`, p:total }); }
+  else if (s.plan === 'single'){ total = g.single; lines.push({ n:`${g.n}外泌體單堂`, p:total }); }
+  else {
+    sessions = Number(s.plan);
+    total = g.pkg[sessions];
+    lines.push({ n:`${g.plan}　${sessions} 堂`, p:total });
+    const per = Math.round(total / sessions);
+    const diff = (g.single - per) * sessions;
+    saved.push(`平均每堂 ${nt(per)}，比單堂省下 ${nt(diff)}`);
+    notes.push('包堂不限本人使用');
+  }
+  return { lines, total, hours:sessions === 1 ? g.t / 60 : g.t / 60, notes, quote:false, saved, sessions };
+}
+
+const CALC = { nail:calcNail, hair:calcHair, glow:calcGlow };
+
+/* ---------- 渲染 ---------- */
+function renderCalc(){
+  const box = $('#calcBody');
+  box.innerHTML = '';
+  const s = S[calcTab];
+
+  if (calcTab === 'nail'){
+    box.appendChild(fieldset('服務類型', chipRow(
+      [{ k:'gel', n:'光療美甲' }, { k:'press', n:'仿真穿戴甲' }, { k:'care', n:'只做卸甲／保養' }],
+      s.mode, k => { s.mode = (s.mode === k ? '' : k); }
+    )));
+
+    if (!s.mode){
+      const h0 = document.createElement('p');
+      h0.className = 'hint';
+      h0.textContent = '這次不做美甲的話，可以直接切換到上方其他分類。';
+      box.appendChild(h0);
+    }
+
+    if (s.mode === 'gel'){
+      const areaWrap = document.createElement('div');
+      areaWrap.appendChild(chipRow(
+        [{ k:'手部', n:'手部' }, { k:'足部', n:'足部' }],
+        s.area, k => { s.area = k; }
+      ));
+      const both = checkRow('nBoth', '手足同時進行', '基礎光療以兩份計算，實際價格以現場為準', '×2', s.both, v => s.both = v);
+      areaWrap.appendChild(both);
+      box.appendChild(fieldset('部位', areaWrap));
+
+      const baseWrap = document.createElement('div');
+      baseWrap.innerHTML = `<div class="stepper"><div class="lb">單色光療<small>基礎價・已包含</small></div><div class="ctrl"><span class="v" style="color:var(--caramel)">${nt(NAIL.base)}</span></div></div>`;
+      baseWrap.appendChild(checkRow('nJump', '跳色', '', '+' + nt(NAIL.jump), s.jump, v => s.jump = v));
+      box.appendChild(fieldset('基礎 GEL', baseWrap));
+
+      const stWrap = document.createElement('div');
+      NAIL.styles.forEach(st => stWrap.appendChild(
+        stepper(st.n, `${nt(st.p)} / 指`, s.styles[st.k] || 0, s.both ? 20 : 10, v => s.styles[st.k] = v)
+      ));
+      stWrap.appendChild(checkRow('nSpec', '特殊限定造型', '依複雜度 $100–$200／指', '報價', s.special, v => s.special = v));
+      const h = document.createElement('p');
+      h.className = 'hint';
+      h.textContent = `款式以「指」計價，單手最多 10 指${s.both ? '（手足同時最多 20 指）' : ''}。`;
+      stWrap.appendChild(h);
+      box.appendChild(fieldset('款式（每指加價）', stWrap));
+
+      const exWrap = document.createElement('div');
+      NAIL.extras.forEach(ex => exWrap.appendChild(
+        stepper(ex.n, `${nt(ex.p)} / ${ex.unit}`, s.extras[ex.k] || 0, s.both ? 20 : 10, v => s.extras[ex.k] = v)
+      ));
+      box.appendChild(fieldset('加購', exWrap));
+
+      box.appendChild(fieldset('卸甲', chipRow(
+        NAIL.removes.map(r => ({ k:r.k, n:r.n, sub:r.p ? nt(r.p) : '' })),
+        s.remove, k => { s.remove = k; }
+      )));
+
+    } else if (s.mode === 'press'){
+      box.appendChild(fieldset('款式', chipRow(
+        NAIL.press.map(p => ({ k:p.k, n:p.n, sub:p.p ? nt(p.p) : '依款式報價' })),
+        s.press, k => { s.press = k; }
+      )));
+      const w = document.createElement('p');
+      w.className = 'hint warn';
+      w.textContent = '⏳ 穿戴甲製作期 7–15 天，非當日完成，請提早預訂。';
+      box.appendChild(w);
+    } else {
+      box.appendChild(fieldset('項目', chipRow(
+        NAIL.careOnly.map(c => ({ k:c.k, n:c.n, sub:nt(c.p) })),
+        s.care, k => { s.care = k; }
+      )));
+      box.appendChild(fieldset('卸甲', chipRow(
+        NAIL.removes.map(r => ({ k:r.k, n:r.n, sub:r.p ? nt(r.p) : '' })),
+        s.remove, k => { s.remove = k; }
+      )));
+    }
+
+  } else if (calcTab === 'hair'){
+    const pWrap = document.createElement('div');
+    HAIR.parts.forEach(p => {
+      const disabled = S.hair.parts.whole && p.k !== 'whole';
+      const row = checkRow('h_' + p.k, p.n, p.desc || '', nt(p.p), !!S.hair.parts[p.k], v => {
+        if (p.solo && v) Object.keys(S.hair.parts).forEach(k => S.hair.parts[k] = false);
+        S.hair.parts[p.k] = v;
+      });
+      if (disabled){ row.style.opacity = '.4'; row.querySelector('input').disabled = true; }
+      pWrap.appendChild(row);
+    });
+    box.appendChild(fieldset('選擇部位（可複選）', pWrap));
+
+    const aWrap = document.createElement('div');
+    aWrap.appendChild(checkRow('hFilm', HAIR.film.n, '', '+' + nt(HAIR.film.p), S.hair.film, v => S.hair.film = v));
+    aWrap.appendChild(checkRow('hMale', '男性', '一律部位每項加價', '+' + nt(HAIR.male.p), S.hair.male, v => S.hair.male = v));
+    aWrap.appendChild(checkRow('hP3', '包三堂', '組合活動包三堂再享 9 折', '9 折', S.hair.pack3, v => S.hair.pack3 = v));
+    box.appendChild(fieldset('加購與優惠', aWrap));
+
+    const h = document.createElement('p');
+    h.className = 'hint';
+    h.textContent = '勾選到組合優惠的部位時，系統會自動換成組合價。';
+    box.appendChild(h);
+
+  } else {
+    box.appendChild(fieldset('部位', chipRow(
+      [{ k:'face', n:'臉部', sub:GLOW.face.tags.slice(0, 6) + '…' },
+       { k:'head', n:'頭部育髮', sub:GLOW.head.tags }],
+      S.glow.part, k => { S.glow.part = k; }
+    )));
+    if (S.glow.part){
+      const g = GLOW[S.glow.part];
+      box.appendChild(fieldset('方案', chipRow(
+        [{ k:'first', n:'首次體驗', sub:nt(g.first) },
+         { k:'single', n:'單堂', sub:nt(g.single) },
+         { k:'3', n:'3 堂', sub:nt(g.pkg[3]) },
+         { k:'5', n:'5 堂', sub:nt(g.pkg[5]) },
+         { k:'10', n:'10 堂', sub:nt(g.pkg[10]) }],
+        S.glow.plan, k => { S.glow.plan = k; }
+      )));
+      const h = document.createElement('p');
+      h.className = 'hint';
+      h.textContent = `適用：${g.tags}。包堂不限本人使用。`;
+      box.appendChild(h);
+    }
+  }
+
+  /* 目前分頁結果 */
+  const r = CALC[calcTab]();
+  const res = document.createElement('div');
+  res.className = 'result';
+  if (!r.lines.length){
+    res.innerHTML = '<p class="empty">選擇項目後，這裡會顯示金額與預估時長</p>';
+  } else {
+    res.innerHTML = r.lines.map(l =>
+      `<div class="rline"><span>${esc(l.n)}</span><span class="rp">${l.p === null ? '報價' : (l.p < 0 ? '−' + nt(-l.p) : nt(l.p))}</span></div>`
+    ).join('')
+    + r.saved.map(s2 => `<div class="rline save"><span>✓ ${esc(s2)}</span><span></span></div>`).join('')
+    + `<div class="rtotal"><span class="lb">此分類小計</span><span class="v">${nt(r.total)}${r.quote ? '+' : ''}</span></div>`
+    + (r.hours ? `<div class="rtime">預估時長 約 ${fmtH(r.hours)}</div>` : '')
+    + r.notes.map(n => `<p class="hint${n.includes('更划算') || n.includes('非當日') ? ' warn' : ''}">※ ${esc(n)}</p>`).join('');
+  }
+  box.appendChild(res);
+
+  if (r.lines.length){
+    const rst = document.createElement('button');
+    rst.type = 'button'; rst.className = 'btn btn-ghost';
+    rst.style.marginTop = '12px';
+    rst.textContent = '清除這個分類的選擇';
+    rst.onclick = () => {
+      if (calcTab === 'nail') S.nail = { mode:'', both:false, area:'手部', jump:false, styles:{}, extras:{}, remove:'no', special:false, press:'', care:'' };
+      if (calcTab === 'hair') S.hair = { parts:{}, film:false, male:false, pack3:false };
+      if (calcTab === 'glow') S.glow = { part:'', plan:'' };
+      renderCalc();
+      toast('已清除');
+    };
+    box.appendChild(rst);
+  }
+  renderSummary();
+}
+
+function fmtH(h){
+  const r = Math.round(h * 2) / 2;
+  return r < 1 ? Math.round(h * 60) + ' 分鐘' : r + ' 小時';
+}
+
+/* ---------- 綜合明細 ---------- */
+function summary(){
+  const all = { lines:[], total:0, hours:0, notes:[], quote:false };
+  ['nail', 'hair', 'glow'].forEach(k => {
+    const r = CALC[k]();
+    if (!r.lines.length) return;
+    all.lines.push(...r.lines);
+    all.total += r.total;
+    all.hours += r.hours;
+    all.notes.push(...r.notes);
+    if (r.quote) all.quote = true;
+  });
+  return all;
+}
+
+function renderSummary(){
+  const el = $('#sumBox');
+  if (!el) return;
+  const a = summary();
+  if (!a.lines.length){
+    el.innerHTML = '<p class="empty">尚未選擇項目，請先完成上方步驟 1</p>';
+    return;
+  }
+  el.innerHTML = a.lines.map(l =>
+    `<div class="rline"><span>${esc(l.n)}</span><span class="rp">${l.p === null ? '報價' : (l.p < 0 ? '−' + nt(-l.p) : nt(l.p))}</span></div>`
+  ).join('')
+  + `<div class="rtotal"><span class="lb">預估總金額</span><span class="v">${nt(a.total)}${a.quote ? '+' : ''}</span></div>`
+  + `<div class="rtime">預估總時長 約 ${fmtH(a.hours)}（實際依現場為準）</div>`;
+}
+
+buildCalcTabs();
+renderCalc();
+
+/* ============================================================
+   預約表單
+   ============================================================ */
+const NEEDS = ['指定服務','不能久坐','需要呼吸','手足同時','需卸他店甲'];
+let needOn = [];
+$('#needChips').innerHTML = '';
+NEEDS.forEach(n => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.className = 'chip'; b.textContent = n;
+  b.setAttribute('aria-pressed', 'false');
+  b.onclick = () => {
+    const i = needOn.indexOf(n);
+    if (i < 0) needOn.push(n); else needOn.splice(i, 1);
+    b.setAttribute('aria-pressed', String(i < 0));
+  };
+  $('#needChips').appendChild(b);
+});
+
+const WD = ['日','一','二','三','四','五','六'];
+function addSlot(){
+  const rows = $$('#slots .slot');
+  if (rows.length >= 4){ toast('最多留 4 組時段'); return; }
+  const d = document.createElement('div');
+  d.className = 'slot';
+  d.innerHTML = `<input type="date" aria-label="日期"><input type="time" aria-label="時間" step="900">`;
+  $('#slots').appendChild(d);
+}
+addSlot(); addSlot();
+$('#addSlot').onclick = addSlot;
+
+function slotText(){
+  return $$('#slots .slot').map(r => {
+    const [d, t] = $$('input', r);
+    if (!d.value) return null;
+    const dt = new Date(d.value + 'T00:00:00');
+    const day = `${dt.getMonth() + 1}/${dt.getDate()}（${WD[dt.getDay()]}）`;
+    return day + (t.value ? ' ' + t.value : ' 任何時段');
+  }).filter(Boolean);
+}
+
+function buildMessage(){
+  const name = $('#fName').value.trim();
+  const tel  = $('#fTel').value.trim();
+  const birth = $('#fBirth').value.trim();
+  const isNew = $('#fNew').checked;
+  const leave = $('#fLeave').value.trim();
+  const note = $('#fNote').value.trim();
+  const a = summary();
+  const slots = slotText();
+
+  let m = '🌟微光所 快速預約\n';
+  m += `姓名：${name}${isNew ? '（新客）' : ''}\n`;
+  m += `電話：${tel}\n`;
+  if (birth) m += `生日：${birth}\n`;
+
+  m += '\n🪴預約項目：\n';
+  if (a.lines.length){
+    a.lines.forEach((l, i) => {
+      m += `${i + 1}. ${l.n}${l.p === null ? '（需報價）' : (l.p < 0 ? ' −' + nt(-l.p) : ' ' + nt(l.p))}\n`;
+    });
+    m += `預估金額 ${nt(a.total)}${a.quote ? ' 起' : ''}｜預估時長 約 ${fmtH(a.hours)}\n`;
+  } else {
+    m += '（想先詢問，麻煩幫我評估）\n';
+  }
+
+  m += '\n💫理想預約時段：\n';
+  if (slots.length) slots.forEach((s, i) => m += `${i + 1}. ${s}\n`);
+  else m += '（想先詢問可預約的時間）\n';
+  if (leave) m += `※ ${leave}需要離開\n`;
+
+  const needs = [...needOn];
+  if (note) needs.push(note);
+  if (a.notes.includes('穿戴甲製作期 7–15 天，非當日完成')) needs.push('想詢問穿戴甲製作與取件時間');
+  if (needs.length) m += `\n⚡️特殊要求：${needs.join('、')}\n`;
+  if (isNew) m += '\n（已閱讀預約須知）';
+  return m;
+}
+
+async function copyText(t){
+  try {
+    await navigator.clipboard.writeText(t);
+    return true;
+  } catch (e){
+    const ta = document.createElement('textarea');
+    ta.value = t;
+    ta.style.cssText = 'position:fixed;opacity:0;top:0';
+    document.body.appendChild(ta);
+    ta.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (e2){ ok = false; }
+    ta.remove();
+    return ok;
+  }
+}
+
+$('#genBtn').onclick = async () => {
+  const name = $('#fName').value.trim(), tel = $('#fTel').value.trim();
+  if (!name){ toast('請先填姓名'); $('#fName').focus(); return; }
+  if (!tel){ toast('請先填電話'); $('#fTel').focus(); return; }
+
+  const msg = buildMessage();
+  $('#msgPreview').textContent = msg;
+  $('#msgWrap').hidden = false;
+  const ok = await copyText(msg);
+  toast(ok ? '訊息已複製，正在開啟 LINE' : '請長按下方訊息複製後貼上');
+  setTimeout(() => {
+    window.location.href = `https://line.me/R/oaMessage/${encodeURIComponent(CONFIG.lineId)}/?${encodeURIComponent(msg)}`;
+  }, 700);
+};
+
+$('#copyBtn').onclick = async () => {
+  const ok = await copyText($('#msgPreview').textContent);
+  toast(ok ? '已複製訊息' : '請長按訊息手動複製');
+};
+
+/* 表單變動時同步明細 */
+['#fName','#fTel','#fBirth','#fLeave','#fNote'].forEach(s => {
+  const el = $(s);
+  if (el) el.addEventListener('input', () => {});
+});
+renderSummary();
+
+</script>
+</body>
+</html>
